@@ -176,7 +176,6 @@
     <Content Include="Content\Images\PlasticBlueHeader.jpg" />
     <Content Include="Content\Images\RedWineHeader.jpg" />
     <Content Include="Content\LoginPage.css" />
-    <Content Include="Content\Produit.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreerAcces.aspx" />
     <Content Include="CreerCategorie.aspx" />
