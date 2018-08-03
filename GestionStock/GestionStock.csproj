@@ -185,6 +185,7 @@
     <Content Include="CreerProduit.aspx" />
     <Content Include="CreerSouscategorie.aspx" />
     <Content Include="CreerUtilisateur.aspx" />
+    <Content Include="CreerVente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GererAcces.aspx" />
     <Content Include="GererCategorie.aspx" />
@@ -412,6 +413,13 @@
     </Compile>
     <Compile Include="CreerUtilisateur.aspx.designer.cs">
       <DependentUpon>CreerUtilisateur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerVente.aspx.cs">
+      <DependentUpon>CreerVente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerVente.aspx.designer.cs">
+      <DependentUpon>CreerVente.aspx</DependentUpon>
     </Compile>
     <Compile Include="DACategory.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
