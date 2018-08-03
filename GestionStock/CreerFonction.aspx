@@ -49,11 +49,11 @@
 						<div class="form-groupe">
 							<b>Cochez les différents droits:</b><br/>
 							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Utilisateur</label><br/>
-							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Produit</label><br/>
-							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Fournisseur</label><br/>
-							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Vente</label><br/>
-                            <input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Approvisionnement</label><br />
-							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Droits d'accés</label><br/>
+							<input type= "checkbox" name= "droit" id= "Checkbox1" runat="server"/><label for= "loisir">Produit</label><br/>
+							<input type= "checkbox" name= "droit" id= "Checkbox2" runat="server"/><label for= "loisir">Fournisseur</label><br/>
+							<input type= "checkbox" name= "droit" id= "Checkbox3" runat="server"/><label for= "loisir">Vente</label><br/>
+                            <input type= "checkbox" name= "droit" id= "Checkbox4" runat="server"/><label for= "loisir">Approvisionnement</label><br />
+							<input type= "checkbox" name= "droit" id= "Checkbox5" runat="server"/><label for= "loisir">Droits d'accés</label><br/>
 						</div>
 						
 			  			<div>

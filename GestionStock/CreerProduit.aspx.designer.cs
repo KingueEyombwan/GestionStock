@@ -76,13 +76,13 @@ namespace GestionStock {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton O;
         
         /// <summary>
-        /// O control.
+        /// Radio1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton O;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio1;
         
         /// <summary>
         /// descriptionProduit control.
