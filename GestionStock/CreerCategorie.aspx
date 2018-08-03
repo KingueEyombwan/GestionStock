@@ -34,7 +34,7 @@
 			  			<div>
 						<div class="form-group">
 							<div>
-								<button type="button" id="validerboutoncreercategorie" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Valider</button>
+								<button type="button" id="validerboutoncreercategorie" runat="server" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Valider</button>
 							</div>
 						</div>		
 			  		</div>

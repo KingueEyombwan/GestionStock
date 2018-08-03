@@ -35,7 +35,7 @@ namespace GestionStock
                     {
 
                     }
-                    HttpContext.Current.Response.Redirect("Default.aspx");
+                    HttpContext.Current.Response.Redirect("GererProduit.aspx");
                 }
 
             }
@@ -47,15 +47,17 @@ namespace GestionStock
                     logsUsers.IdUser = user.IdUtilisateur;
                     logsUsers.Details = "Connexion reussie pur l'utitilisateur de login : " + UserUsername.Value;
                     context.LogsUsers.Add(logsUsers);
+                    V_User v_User = context.V_User.FirstOrDefault(u => u.IdUtilisateur == user.IdUtilisateur);
                     try
                     {
                         context.SaveChanges();
+                        HttpContext.Current.Session.Add("user", v_User);
                     }
                     catch (Exception ex)
                     {
 
                     }
-                    HttpContext.Current.Response.Redirect("Default.aspx");
+                    HttpContext.Current.Response.Redirect("GererProduit.aspx");
                 }
             }
         }
