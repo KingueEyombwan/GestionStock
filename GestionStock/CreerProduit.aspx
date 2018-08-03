@@ -52,7 +52,7 @@
 							<b>Approvisionnement Automatique:</b></br>
 							<input type= "radio" name= "Auto" id= "O" runat="server"/>
 							<label for= "T"> Oui</label><br/>
-							<input type= "radio" name= "Auto" id= "O" runat="server"/>
+							<input type= "radio" name= "Auto" id= "N" runat="server"/>
 							<label for= "F"> Non</label>
 						</div>
 					</div>
