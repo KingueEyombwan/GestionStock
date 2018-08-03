@@ -3,5 +3,5 @@
   <item Text="Produits" NavigateUrl="#" />
   <item Text="Utilisateur" NavigateUrl="#"  />
   <item Text="Fournisseur" NavigateUrl="#"  />
-  <item Text="Imprimer" NavigateUrl="#"  />
+  <item Text="Vente" NavigateUrl="#"  />
 </items>

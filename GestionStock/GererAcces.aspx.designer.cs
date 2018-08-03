@@ -11,7 +11,7 @@ namespace GestionStock
 {
 
 
-    public partial class UtilisateurPage
+    public partial class GererAcces
     {
     }
 }

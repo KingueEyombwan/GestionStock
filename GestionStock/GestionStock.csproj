@@ -163,6 +163,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\TopMenu.xml" />
+    <Content Include="CeerFournisseur.aspx" />
     <Content Include="Content\Images\AquaHeader.jpg" />
     <Content Include="Content\Images\BlackGlassHeader.jpg" />
     <Content Include="Content\Images\GlassHeader.jpg" />
@@ -170,9 +171,20 @@
     <Content Include="Content\Images\PlasticBlueHeader.jpg" />
     <Content Include="Content\Images\RedWineHeader.jpg" />
     <Content Include="Content\Site.css" />
-    <Content Include="EnregistrerFournisseur.aspx" />
-    <Content Include="FournisseurPage.aspx" />
+    <Content Include="CreerAcces.aspx" />
+    <Content Include="CreerCategorie.aspx" />
+    <Content Include="CreerFonction.aspx" />
+    <Content Include="CreerProduit.aspx" />
+    <Content Include="CreerSouscategorie.aspx" />
+    <Content Include="CreerUtilisateur.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GererAcces.aspx" />
+    <Content Include="GererCategorie.aspx" />
+    <Content Include="GererFonction.aspx" />
+    <Content Include="GererFournisseur.aspx" />
+    <Content Include="GererProduit.aspx" />
+    <Content Include="GererSouscategorie.aspx" />
+    <Content Include="GererUtilisateur.aspx" />
     <Content Include="GestStockModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GestStockModel.edmx</DependentUpon>
@@ -185,7 +197,6 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="LoginPage.aspx" />
-    <Content Include="ProductPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -200,7 +211,6 @@
     <Content Include="Root.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UtilisateurPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
     <EntityDeploy Include="GestStockModel.edmx">
@@ -342,8 +352,57 @@
     <Compile Include="Category.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CeerFournisseur.aspx.cs">
+      <DependentUpon>CeerFournisseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CeerFournisseur.aspx.designer.cs">
+      <DependentUpon>CeerFournisseur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Commande.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreerAcces.aspx.cs">
+      <DependentUpon>CreerAcces.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerAcces.aspx.designer.cs">
+      <DependentUpon>CreerAcces.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerCategorie.aspx.cs">
+      <DependentUpon>CreerCategorie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerCategorie.aspx.designer.cs">
+      <DependentUpon>CreerCategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerFonction.aspx.cs">
+      <DependentUpon>CreerFonction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerFonction.aspx.designer.cs">
+      <DependentUpon>CreerFonction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerProduit.aspx.cs">
+      <DependentUpon>CreerProduit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerProduit.aspx.designer.cs">
+      <DependentUpon>CreerProduit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerSouscategorie.aspx.cs">
+      <DependentUpon>CreerSouscategorie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerSouscategorie.aspx.designer.cs">
+      <DependentUpon>CreerSouscategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreerUtilisateur.aspx.cs">
+      <DependentUpon>CreerUtilisateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerUtilisateur.aspx.designer.cs">
+      <DependentUpon>CreerUtilisateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="DACategory.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
@@ -369,20 +428,6 @@
     <Compile Include="DASCategory.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EnregistrerFournisseur.aspx.cs">
-      <DependentUpon>EnregistrerFournisseur.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EnregistrerFournisseur.aspx.designer.cs">
-      <DependentUpon>EnregistrerFournisseur.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FournisseurPage.aspx.cs">
-      <DependentUpon>FournisseurPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FournisseurPage.aspx.designer.cs">
-      <DependentUpon>FournisseurPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DAUtilisateur.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
@@ -398,6 +443,55 @@
     </Compile>
     <Compile Include="Fournisseur.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GererAcces.aspx.cs">
+      <DependentUpon>GererAcces.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererAcces.aspx.designer.cs">
+      <DependentUpon>GererAcces.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererCategorie.aspx.cs">
+      <DependentUpon>GererCategorie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererCategorie.aspx.designer.cs">
+      <DependentUpon>GererCategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererFonction.aspx.cs">
+      <DependentUpon>GererFonction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererFonction.aspx.designer.cs">
+      <DependentUpon>GererFonction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererFournisseur.aspx.cs">
+      <DependentUpon>GererFournisseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererFournisseur.aspx.designer.cs">
+      <DependentUpon>GererFournisseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererProduit.aspx.cs">
+      <DependentUpon>GererProduit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererProduit.aspx.designer.cs">
+      <DependentUpon>GererProduit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererSouscategorie.aspx.cs">
+      <DependentUpon>GererSouscategorie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererSouscategorie.aspx.designer.cs">
+      <DependentUpon>GererSouscategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GererUtilisateur.aspx.cs">
+      <DependentUpon>GererUtilisateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererUtilisateur.aspx.designer.cs">
+      <DependentUpon>GererUtilisateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestStockModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -448,13 +542,6 @@
     <Compile Include="Person.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductPage.aspx.cs">
-      <DependentUpon>ProductPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductPage.aspx.designer.cs">
-      <DependentUpon>ProductPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Produit.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
@@ -478,13 +565,6 @@
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UtilisateurPage.aspx.cs">
-      <DependentUpon>UtilisateurPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UtilisateurPage.aspx.designer.cs">
-      <DependentUpon>UtilisateurPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="V_Acces.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>

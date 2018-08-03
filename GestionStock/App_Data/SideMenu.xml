@@ -44,6 +44,7 @@
     <item Text="Produits Plus consommés"/>
     <item Text="Produits Moins consommés"/>
     <item Text="Produits consommés en interne"/>
+    <item Text="Proformat"/>
     <item Text="Déconnection"/>
   </group>
 </menu>
