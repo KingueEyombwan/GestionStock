@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GestionStock
 {
-    public partial class CreerUtilisateur : System.Web.UI.Page
+    public partial class GererFournisseur : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

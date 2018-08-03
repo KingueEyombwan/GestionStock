@@ -184,7 +184,6 @@
     <Content Include="CreerFonction.aspx" />
     <Content Include="CreerProduit.aspx" />
     <Content Include="CreerSouscategorie.aspx" />
-    <Content Include="CreerUtilisateur.aspx" />
     <Content Include="CreerVente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GererAcces.aspx" />
@@ -406,13 +405,6 @@
     </Compile>
     <Compile Include="CreerSouscategorie.aspx.designer.cs">
       <DependentUpon>CreerSouscategorie.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CreerUtilisateur.aspx.cs">
-      <DependentUpon>CreerUtilisateur.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreerUtilisateur.aspx.designer.cs">
-      <DependentUpon>CreerUtilisateur.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreerVente.aspx.cs">
       <DependentUpon>CreerVente.aspx</DependentUpon>

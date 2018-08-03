@@ -10,123 +10,105 @@
 namespace GestionStock {
     
     
-    public partial class CreerUtilisateur {
+    public partial class CreerFonction {
         
         /// <summary>
-        /// CreerUtilisateurNom control.
+        /// CreerFonctionLibelle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerUtilisateurNom;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerFonctionLibelle;
         
         /// <summary>
-        /// CreerUtilisateurPrenom control.
+        /// CreerFonctionCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerUtilisateurPrenom;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerFonctionCode;
         
         /// <summary>
-        /// CreerUtilisateurNaissance control.
+        /// CreerFonctionNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerUtilisateurNaissance;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerFonctionNombre;
         
         /// <summary>
-        /// CreerUtilisateurLieu control.
+        /// CreerFonctionDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerUtilisateurLieu;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerFonctionDate;
         
         /// <summary>
-        /// CreerUtilisateurMail control.
+        /// CreerFonctiondescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerUtilisateurMail;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea CreerFonctiondescription;
         
         /// <summary>
-        /// CreerUtilisateurAdresse control.
+        /// droit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerUtilisateurAdresse;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox droit;
         
         /// <summary>
-        /// CreerUtilisateurTelephone control.
+        /// Checkbox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerUtilisateurTelephone;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox1;
         
         /// <summary>
-        /// M control.
+        /// Checkbox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton M;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox2;
         
         /// <summary>
-        /// F control.
+        /// Checkbox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton F;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox3;
         
         /// <summary>
-        /// CreerUtilisateurLogin control.
+        /// Checkbox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerUtilisateurLogin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox4;
         
         /// <summary>
-        /// CreerUtilisateurPassword control.
+        /// Checkbox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerUtilisateurPassword;
-        
-        /// <summary>
-        /// CreerUtilisateurMatricule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerUtilisateurMatricule;
-        
-        /// <summary>
-        /// ValiderBoutoncreeruser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton ValiderBoutoncreeruser;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox5;
     }
 }
