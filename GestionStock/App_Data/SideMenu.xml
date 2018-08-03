@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="Utilisateur">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+  </group>
+  <group Text="Produit">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+  </group>
+  <group Text="Fournisseur">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+  </group>
+ <group Text="Fonctionr">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+  </group>
+<group Text="Categorie">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+ </group>
+<group Text="Sous Categorie">
+    <item Text="Rechercher" />
+    <item Text="Enregistrer" />
+    <item Text="Modifier" />
+    <item Text="Supprimer" />
+  </group>
+<group Text="Autres">
+    <item Text="Inventaire" />
+    <item Text="Journalisation" />
+    <item Text="Mail" />
+    <item Text="Archiver" />
+    <item Text="Produits Plus consommés"/>
+    <item Text="Produits Moins consommés"/>
+    <item Text="Produits consommés en interne"/>
+    <item Text="Déconnection"/>
+  </group>
+</menu>

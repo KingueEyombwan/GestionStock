@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="GestionStock.Global_asax" Language="C#" %>

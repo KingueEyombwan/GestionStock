@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="Produits" NavigateUrl="#" />
+  <item Text="Utilisateur" NavigateUrl="#"  />
+  <item Text="Fournisseur" NavigateUrl="#"  />
+  <item Text="Imprimer" NavigateUrl="#"  />
+</items>

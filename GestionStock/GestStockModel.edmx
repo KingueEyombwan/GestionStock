@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GestStockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_Category" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="De_Category" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="IdCommande" />
+          </Key>
+          <Property Name="IdCommande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_Vente" Type="date" Nullable="false" />
+          <Property Name="H_Vente" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DACategory">
+          <Key>
+            <PropertyRef Name="IdACategory" />
+          </Key>
+          <Property Name="IdACategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Category" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAcces">
+          <Key>
+            <PropertyRef Name="IdDAcces" />
+          </Key>
+          <Property Name="IdDAcces" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isForUser" Type="int" Nullable="false" />
+          <Property Name="IdACommande" Type="int" Nullable="false" />
+          <Property Name="IdAFonction" Type="int" Nullable="false" />
+          <Property Name="IdAPersonne" Type="int" Nullable="false" />
+          <Property Name="IdAProduit" Type="int" Nullable="false" />
+          <Property Name="IdASCategory" Type="int" Nullable="false" />
+          <Property Name="IdACategory" Type="int" Nullable="false" />
+          <Property Name="IdAFournisseur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DACommande">
+          <Key>
+            <PropertyRef Name="IdACommande" />
+          </Key>
+          <Property Name="IdACommande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Commande" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Commande" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Commande" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAFonction">
+          <Key>
+            <PropertyRef Name="IdAFonction" />
+          </Key>
+          <Property Name="IdAFonction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Fonction" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAFournisseur">
+          <Key>
+            <PropertyRef Name="IdAFournisseur" />
+          </Key>
+          <Property Name="IdAFournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAPersonne">
+          <Key>
+            <PropertyRef Name="IdAPersonne" />
+          </Key>
+          <Property Name="IdAPersonne" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Personne" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAProduit">
+          <Key>
+            <PropertyRef Name="IdAProduit" />
+          </Key>
+          <Property Name="IdAProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Produit" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DASCategory">
+          <Key>
+            <PropertyRef Name="IdASCategory" />
+          </Key>
+          <Property Name="IdASCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_SCategory" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAUtilisateur">
+          <Key>
+            <PropertyRef Name="IdAUtilisateur" />
+          </Key>
+          <Property Name="IdAUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_User" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fonction">
+          <Key>
+            <PropertyRef Name="IdFonction" />
+          </Key>
+          <Property Name="IdFonction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="IdDAcces" Type="int" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="D_Creation" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="IdFournisseur" />
+          </Key>
+          <Property Name="IdFournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_Fournisseur" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="C_Fournisseur" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Mail_Fournisseur" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdresseF" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="N_Telephone" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GestStock.dbo.LogsUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LogsUsers">
+          <Key>
+            <PropertyRef Name="IdLogsUser" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="IdLogsUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="Details" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nombre">
+          <Key>
+            <PropertyRef Name="IdNombre" />
+          </Key>
+          <Property Name="IdNombre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuantiteF" Type="int" Nullable="false" />
+          <Property Name="IdFournisseur" Type="int" Nullable="false" />
+          <Property Name="H_Livraison" Type="time" Precision="7" />
+          <Property Name="P_Achat" Type="int" />
+          <Property Name="D_Livraison" Type="date" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IdPersonne" />
+          </Key>
+          <Property Name="IdPersonne" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="D_Naissance" Type="datetime" Nullable="false" />
+          <Property Name="L_Naissance" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="N_Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexe" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSCategory" Type="int" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+          <Property Name="NomPro" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ref_Produit" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="De_Produit" Type="text" Nullable="false" />
+          <Property Name="Co_Produit" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="P_NProduit" Type="int" Nullable="false" />
+          <Property Name="P_VProduit" Type="int" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="Q_Critique" Type="int" Nullable="false" />
+          <Property Name="Q_Fixe" Type="int" Nullable="false" />
+          <Property Name="Auto_Appro" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quantite">
+          <Key>
+            <PropertyRef Name="IdQuantite" />
+          </Key>
+          <Property Name="IdQuantite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="IdCommande" Type="int" Nullable="false" />
+          <Property Name="Qte" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SCategory">
+          <Key>
+            <PropertyRef Name="IdSCategory" />
+          </Key>
+          <Property Name="IdSCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="N_SCategory" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="De_SCategory" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFonction" Type="int" Nullable="false" />
+          <Property Name="IdPersonne" Type="int" Nullable="false" />
+          <Property Name="Matricule" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="int" Nullable="false" />
+          <Property Name="IdDAcces" Type="int" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GestStock.dbo.V_Acces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Acces">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="IdPersonne" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Prenom" />
+            <PropertyRef Name="IdUtilisateur" />
+            <PropertyRef Name="Matricule" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Add_Category" />
+            <PropertyRef Name="Delete_Category" />
+            <PropertyRef Name="Modify_Category" />
+            <PropertyRef Name="IdDAcces" />
+            <PropertyRef Name="isForUser" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="Expr3" />
+            <PropertyRef Name="IdAFonction" />
+            <PropertyRef Name="Add_Fonction" />
+            <PropertyRef Name="Delete_Fonction" />
+            <PropertyRef Name="Modify_Fonction" />
+            <PropertyRef Name="IdAPersonne" />
+            <PropertyRef Name="Add_Personne" />
+            <PropertyRef Name="Delete_Personne" />
+            <PropertyRef Name="Modify_Personne" />
+            <PropertyRef Name="IdAProduit" />
+            <PropertyRef Name="Add_Produit" />
+            <PropertyRef Name="Delete_Produit" />
+            <PropertyRef Name="Modify_Produit" />
+            <PropertyRef Name="IdASCategory" />
+            <PropertyRef Name="Add_SCategory" />
+            <PropertyRef Name="Delete_SCategory" />
+            <PropertyRef Name="Modify_SCategory" />
+            <PropertyRef Name="IdAUtilisateur" />
+            <PropertyRef Name="Add_User" />
+            <PropertyRef Name="Delete_User" />
+            <PropertyRef Name="Modify_User" />
+            <PropertyRef Name="IdFonction" />
+            <PropertyRef Name="IdAFournisseur" />
+            <PropertyRef Name="Add_Fournisseur" />
+            <PropertyRef Name="Delete_Fournisseur" />
+            <PropertyRef Name="Modify_Fournisseur" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="IdPersonne" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+          <Property Name="Matricule" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Add_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdDAcces" Type="int" Nullable="false" />
+          <Property Name="isForUser" Type="bit" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
+          <Property Name="Expr3" Type="int" Nullable="false" />
+          <Property Name="IdAFonction" Type="int" Nullable="false" />
+          <Property Name="Add_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdAPersonne" Type="int" Nullable="false" />
+          <Property Name="Add_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdAProduit" Type="int" Nullable="false" />
+          <Property Name="Add_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdASCategory" Type="int" Nullable="false" />
+          <Property Name="Add_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdAUtilisateur" Type="bit" Nullable="false" />
+          <Property Name="Add_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdFonction" Type="int" Nullable="false" />
+          <Property Name="IdAFournisseur" Type="int" Nullable="false" />
+          <Property Name="Add_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Delete_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Modify_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GestStock.dbo.V_Produit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_Produit">
+          <Key>
+            <PropertyRef Name="N_Category" />
+            <PropertyRef Name="De_Category" />
+            <PropertyRef Name="D_Livraison" />
+            <PropertyRef Name="H_Livraison" />
+            <PropertyRef Name="P_AProduit" />
+            <PropertyRef Name="P_VProduit" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="N_SCategory" />
+            <PropertyRef Name="De_SCategory" />
+            <PropertyRef Name="De_Produit" />
+            <PropertyRef Name="IdCategory" />
+            <PropertyRef Name="IdSCategory" />
+            <PropertyRef Name="IdProduit" />
+            <PropertyRef Name="IdFournisseur" />
+            <PropertyRef Name="N_Fournisseur" />
+          </Key>
+          <Property Name="N_Category" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="De_Category" Type="text" Nullable="false" />
+          <Property Name="D_Livraison" Type="date" Nullable="false" />
+          <Property Name="H_Livraison" Type="time" Precision="7" Nullable="false" />
+          <Property Name="P_AProduit" Type="int" Nullable="false" />
+          <Property Name="P_VProduit" Type="int" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="N_SCategory" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="De_SCategory" Type="text" Nullable="false" />
+          <Property Name="De_Produit" Type="text" Nullable="false" />
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="IdSCategory" Type="int" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="IdFournisseur" Type="int" Nullable="false" />
+          <Property Name="N_Fournisseur" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NomPro" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_User">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+            <PropertyRef Name="IdPersonne" />
+            <PropertyRef Name="IdFonction" />
+            <PropertyRef Name="Matricule" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Prenom" />
+            <PropertyRef Name="D_Naissance" />
+            <PropertyRef Name="L_Naissance" />
+            <PropertyRef Name="Adresse" />
+            <PropertyRef Name="N_Telephone" />
+            <PropertyRef Name="Sexe" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Libelle" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+          <Property Name="IdPersonne" Type="int" Nullable="false" />
+          <Property Name="IdFonction" Type="int" Nullable="false" />
+          <Property Name="Matricule" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="D_Naissance" Type="datetime" Nullable="false" />
+          <Property Name="L_Naissance" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="N_Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexe" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DAcces_DACategory">
+          <End Role="DACategory" Type="Self.DACategory" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DACategory">
+              <PropertyRef Name="IdACategory" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdACategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DACommande">
+          <End Role="DACommande" Type="Self.DACommande" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DACommande">
+              <PropertyRef Name="IdACommande" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdACommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAFonction">
+          <End Role="DAFonction" Type="Self.DAFonction" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAFonction">
+              <PropertyRef Name="IdAFonction" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAFournisseur">
+          <End Role="DAFournisseur" Type="Self.DAFournisseur" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAFournisseur">
+              <PropertyRef Name="IdAFournisseur" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAFournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAPersonne">
+          <End Role="DAPersonne" Type="Self.DAPersonne" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAPersonne">
+              <PropertyRef Name="IdAPersonne" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAProduit">
+          <End Role="DAProduit" Type="Self.DAProduit" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAProduit">
+              <PropertyRef Name="IdAProduit" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DASCategory">
+          <End Role="DASCategory" Type="Self.DASCategory" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DASCategory">
+              <PropertyRef Name="IdASCategory" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdASCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAUtilisateur">
+          <End Role="DAUtilisateur" Type="Self.DAUtilisateur" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAUtilisateur">
+              <PropertyRef Name="IdAUtilisateur" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="isForUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fonction_DAcces">
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="0..1" />
+          <End Role="Fonction" Type="Self.Fonction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAcces">
+              <PropertyRef Name="IdDAcces" />
+            </Principal>
+            <Dependent Role="Fonction">
+              <PropertyRef Name="IdDAcces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nombre_Fournisseur">
+          <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1" />
+          <End Role="Nombre" Type="Self.Nombre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="IdFournisseur" />
+            </Principal>
+            <Dependent Role="Nombre">
+              <PropertyRef Name="IdFournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nombre_Produit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Nombre" Type="Self.Nombre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Nombre">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produit_SCategory">
+          <End Role="SCategory" Type="Self.SCategory" Multiplicity="1" />
+          <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCategory">
+              <PropertyRef Name="IdSCategory" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="IdSCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quantite_Commande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="Quantite" Type="Self.Quantite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="IdCommande" />
+            </Principal>
+            <Dependent Role="Quantite">
+              <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quantite_Produit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Quantite" Type="Self.Quantite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Quantite">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="SCategory" Type="Self.SCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="SCategory">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DAcces">
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAcces">
+              <PropertyRef Name="IdDAcces" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdDAcces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Fonction">
+          <End Role="Fonction" Type="Self.Fonction" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonction">
+              <PropertyRef Name="IdFonction" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Personne">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="IdPersonne" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestStockModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DACategory" EntityType="Self.DACategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAcces" EntityType="Self.DAcces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DACommande" EntityType="Self.DACommande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAFonction" EntityType="Self.DAFonction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAFournisseur" EntityType="Self.DAFournisseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAPersonne" EntityType="Self.DAPersonne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAProduit" EntityType="Self.DAProduit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DASCategory" EntityType="Self.DASCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAUtilisateur" EntityType="Self.DAUtilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fonction" EntityType="Self.Fonction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nombre" EntityType="Self.Nombre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quantite" EntityType="Self.Quantite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SCategory" EntityType="Self.SCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogsUsers" EntityType="Self.LogsUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LogsUsers].[IdLogsUser] AS [IdLogsUser], 
+    [LogsUsers].[IdUser] AS [IdUser], 
+    [LogsUsers].[Details] AS [Details]
+    FROM [dbo].[LogsUsers] AS [LogsUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Acces" EntityType="Self.V_Acces" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Acces].[Code] AS [Code], 
+    [V_Acces].[IdPersonne] AS [IdPersonne], 
+    [V_Acces].[Nom] AS [Nom], 
+    [V_Acces].[Prenom] AS [Prenom], 
+    [V_Acces].[IdUtilisateur] AS [IdUtilisateur], 
+    [V_Acces].[Matricule] AS [Matricule], 
+    [V_Acces].[Expr1] AS [Expr1], 
+    [V_Acces].[Add_Category] AS [Add_Category], 
+    [V_Acces].[Delete_Category] AS [Delete_Category], 
+    [V_Acces].[Modify_Category] AS [Modify_Category], 
+    [V_Acces].[IdDAcces] AS [IdDAcces], 
+    [V_Acces].[isForUser] AS [isForUser], 
+    [V_Acces].[Expr2] AS [Expr2], 
+    [V_Acces].[Expr3] AS [Expr3], 
+    [V_Acces].[IdAFonction] AS [IdAFonction], 
+    [V_Acces].[Add_Fonction] AS [Add_Fonction], 
+    [V_Acces].[Delete_Fonction] AS [Delete_Fonction], 
+    [V_Acces].[Modify_Fonction] AS [Modify_Fonction], 
+    [V_Acces].[IdAPersonne] AS [IdAPersonne], 
+    [V_Acces].[Add_Personne] AS [Add_Personne], 
+    [V_Acces].[Delete_Personne] AS [Delete_Personne], 
+    [V_Acces].[Modify_Personne] AS [Modify_Personne], 
+    [V_Acces].[IdAProduit] AS [IdAProduit], 
+    [V_Acces].[Add_Produit] AS [Add_Produit], 
+    [V_Acces].[Delete_Produit] AS [Delete_Produit], 
+    [V_Acces].[Modify_Produit] AS [Modify_Produit], 
+    [V_Acces].[IdASCategory] AS [IdASCategory], 
+    [V_Acces].[Add_SCategory] AS [Add_SCategory], 
+    [V_Acces].[Delete_SCategory] AS [Delete_SCategory], 
+    [V_Acces].[Modify_SCategory] AS [Modify_SCategory], 
+    [V_Acces].[IdAUtilisateur] AS [IdAUtilisateur], 
+    [V_Acces].[Add_User] AS [Add_User], 
+    [V_Acces].[Delete_User] AS [Delete_User], 
+    [V_Acces].[Modify_User] AS [Modify_User], 
+    [V_Acces].[IdFonction] AS [IdFonction], 
+    [V_Acces].[IdAFournisseur] AS [IdAFournisseur], 
+    [V_Acces].[Add_Fournisseur] AS [Add_Fournisseur], 
+    [V_Acces].[Delete_Fournisseur] AS [Delete_Fournisseur], 
+    [V_Acces].[Modify_Fournisseur] AS [Modify_Fournisseur]
+    FROM [dbo].[V_Acces] AS [V_Acces]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Produit" EntityType="Self.V_Produit" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Produit].[N_Category] AS [N_Category], 
+    [V_Produit].[De_Category] AS [De_Category], 
+    [V_Produit].[D_Livraison] AS [D_Livraison], 
+    [V_Produit].[H_Livraison] AS [H_Livraison], 
+    [V_Produit].[P_AProduit] AS [P_AProduit], 
+    [V_Produit].[P_VProduit] AS [P_VProduit], 
+    [V_Produit].[Quantite] AS [Quantite], 
+    [V_Produit].[N_SCategory] AS [N_SCategory], 
+    [V_Produit].[De_SCategory] AS [De_SCategory], 
+    [V_Produit].[De_Produit] AS [De_Produit], 
+    [V_Produit].[IdCategory] AS [IdCategory], 
+    [V_Produit].[IdSCategory] AS [IdSCategory], 
+    [V_Produit].[IdProduit] AS [IdProduit], 
+    [V_Produit].[IdFournisseur] AS [IdFournisseur], 
+    [V_Produit].[N_Fournisseur] AS [N_Fournisseur], 
+    [V_Produit].[NomPro] AS [NomPro]
+    FROM [dbo].[V_Produit] AS [V_Produit]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_User" EntityType="Self.V_User" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_User].[IdUtilisateur] AS [IdUtilisateur], 
+    [V_User].[IdPersonne] AS [IdPersonne], 
+    [V_User].[IdFonction] AS [IdFonction], 
+    [V_User].[Matricule] AS [Matricule], 
+    [V_User].[Nom] AS [Nom], 
+    [V_User].[Prenom] AS [Prenom], 
+    [V_User].[D_Naissance] AS [D_Naissance], 
+    [V_User].[L_Naissance] AS [L_Naissance], 
+    [V_User].[Adresse] AS [Adresse], 
+    [V_User].[N_Telephone] AS [N_Telephone], 
+    [V_User].[Sexe] AS [Sexe], 
+    [V_User].[Code] AS [Code], 
+    [V_User].[Libelle] AS [Libelle], 
+    [V_User].[Description] AS [Description]
+    FROM [dbo].[V_User] AS [V_User]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DAcces_DACategory" Association="Self.FK_DAcces_DACategory">
+            <End Role="DACategory" EntitySet="DACategory" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DACommande" Association="Self.FK_DAcces_DACommande">
+            <End Role="DACommande" EntitySet="DACommande" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAFonction" Association="Self.FK_DAcces_DAFonction">
+            <End Role="DAFonction" EntitySet="DAFonction" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAFournisseur" Association="Self.FK_DAcces_DAFournisseur">
+            <End Role="DAFournisseur" EntitySet="DAFournisseur" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAPersonne" Association="Self.FK_DAcces_DAPersonne">
+            <End Role="DAPersonne" EntitySet="DAPersonne" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAProduit" Association="Self.FK_DAcces_DAProduit">
+            <End Role="DAProduit" EntitySet="DAProduit" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DASCategory" Association="Self.FK_DAcces_DASCategory">
+            <End Role="DASCategory" EntitySet="DASCategory" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAUtilisateur" Association="Self.FK_DAcces_DAUtilisateur">
+            <End Role="DAUtilisateur" EntitySet="DAUtilisateur" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fonction_DAcces" Association="Self.FK_Fonction_DAcces">
+            <End Role="DAcces" EntitySet="DAcces" />
+            <End Role="Fonction" EntitySet="Fonction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nombre_Fournisseur" Association="Self.FK_Nombre_Fournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Nombre" EntitySet="Nombre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nombre_Produit" Association="Self.FK_Nombre_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Nombre" EntitySet="Nombre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produit_SCategory" Association="Self.FK_Produit_SCategory">
+            <End Role="SCategory" EntitySet="SCategory" />
+            <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quantite_Commande" Association="Self.FK_Quantite_Commande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Quantite" EntitySet="Quantite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quantite_Produit" Association="Self.FK_Quantite_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Quantite" EntitySet="Quantite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SCategory_Category" Association="Self.FK_SCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SCategory" EntitySet="SCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DAcces" Association="Self.FK_User_DAcces">
+            <End Role="DAcces" EntitySet="DAcces" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Fonction" Association="Self.FK_Utilisateur_Fonction">
+            <End Role="Fonction" EntitySet="Fonction" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Personne" Association="Self.FK_Utilisateur_Personne">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestStockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GestStockEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category" EntityType="GestStockModel.Category" />
+          <EntitySet Name="Commande" EntityType="GestStockModel.Commande" />
+          <EntitySet Name="DACategory" EntityType="GestStockModel.DACategory" />
+          <EntitySet Name="DAcces" EntityType="GestStockModel.DAcces" />
+          <EntitySet Name="DACommande" EntityType="GestStockModel.DACommande" />
+          <EntitySet Name="DAFonction" EntityType="GestStockModel.DAFonction" />
+          <EntitySet Name="DAFournisseur" EntityType="GestStockModel.DAFournisseur" />
+          <EntitySet Name="DAPersonne" EntityType="GestStockModel.DAPersonne" />
+          <EntitySet Name="DAProduit" EntityType="GestStockModel.DAProduit" />
+          <EntitySet Name="DASCategory" EntityType="GestStockModel.DASCategory" />
+          <EntitySet Name="DAUtilisateur" EntityType="GestStockModel.DAUtilisateur" />
+          <EntitySet Name="Fonction" EntityType="GestStockModel.Fonction" />
+          <EntitySet Name="Fournisseur" EntityType="GestStockModel.Fournisseur" />
+          <EntitySet Name="Nombre" EntityType="GestStockModel.Nombre" />
+          <EntitySet Name="Person" EntityType="GestStockModel.Person" />
+          <EntitySet Name="Produit" EntityType="GestStockModel.Produit" />
+          <EntitySet Name="Quantite" EntityType="GestStockModel.Quantite" />
+          <EntitySet Name="SCategory" EntityType="GestStockModel.SCategory" />
+          <EntitySet Name="sysdiagrams" EntityType="GestStockModel.sysdiagrams" />
+          <EntitySet Name="User" EntityType="GestStockModel.User" />
+          <EntitySet Name="V_Acces" EntityType="GestStockModel.V_Acces" />
+          <EntitySet Name="V_Produit" EntityType="GestStockModel.V_Produit" />
+          <EntitySet Name="V_User" EntityType="GestStockModel.V_User" />
+          <AssociationSet Name="FK_SCategory_Category" Association="GestStockModel.FK_SCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SCategory" EntitySet="SCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quantite_Commande" Association="GestStockModel.FK_Quantite_Commande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Quantite" EntitySet="Quantite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DACategory" Association="GestStockModel.FK_DAcces_DACategory">
+            <End Role="DACategory" EntitySet="DACategory" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DACommande" Association="GestStockModel.FK_DAcces_DACommande">
+            <End Role="DACommande" EntitySet="DACommande" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAFonction" Association="GestStockModel.FK_DAcces_DAFonction">
+            <End Role="DAFonction" EntitySet="DAFonction" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAFournisseur" Association="GestStockModel.FK_DAcces_DAFournisseur">
+            <End Role="DAFournisseur" EntitySet="DAFournisseur" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAPersonne" Association="GestStockModel.FK_DAcces_DAPersonne">
+            <End Role="DAPersonne" EntitySet="DAPersonne" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAProduit" Association="GestStockModel.FK_DAcces_DAProduit">
+            <End Role="DAProduit" EntitySet="DAProduit" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DASCategory" Association="GestStockModel.FK_DAcces_DASCategory">
+            <End Role="DASCategory" EntitySet="DASCategory" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAUtilisateur" Association="GestStockModel.FK_DAcces_DAUtilisateur">
+            <End Role="DAUtilisateur" EntitySet="DAUtilisateur" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fonction_DAcces" Association="GestStockModel.FK_Fonction_DAcces">
+            <End Role="DAcces" EntitySet="DAcces" />
+            <End Role="Fonction" EntitySet="Fonction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DAcces" Association="GestStockModel.FK_User_DAcces">
+            <End Role="DAcces" EntitySet="DAcces" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Fonction" Association="GestStockModel.FK_Utilisateur_Fonction">
+            <End Role="Fonction" EntitySet="Fonction" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nombre_Fournisseur" Association="GestStockModel.FK_Nombre_Fournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Nombre" EntitySet="Nombre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nombre_Produit" Association="GestStockModel.FK_Nombre_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Nombre" EntitySet="Nombre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_Personne" Association="GestStockModel.FK_Utilisateur_Personne">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produit_SCategory" Association="GestStockModel.FK_Produit_SCategory">
+            <End Role="SCategory" EntitySet="SCategory" />
+            <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quantite_Produit" Association="GestStockModel.FK_Quantite_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Quantite" EntitySet="Quantite" />
+          </AssociationSet>
+          <EntitySet Name="LogsUsers" EntityType="GestStockModel.LogsUsers" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_Category" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="De_Category" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SCategory" Relationship="GestStockModel.FK_SCategory_Category" FromRole="Category" ToRole="SCategory" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="IdCommande" />
+          </Key>
+          <Property Name="IdCommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_Vente" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="H_Vente" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Quantite" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Commande" ToRole="Quantite" />
+        </EntityType>
+        <EntityType Name="DACategory">
+          <Key>
+            <PropertyRef Name="IdACategory" />
+          </Key>
+          <Property Name="IdACategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DACategory" FromRole="DACategory" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAcces">
+          <Key>
+            <PropertyRef Name="IdDAcces" />
+          </Key>
+          <Property Name="IdDAcces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isForUser" Type="Int32" Nullable="false" />
+          <Property Name="IdACommande" Type="Int32" Nullable="false" />
+          <Property Name="IdAFonction" Type="Int32" Nullable="false" />
+          <Property Name="IdAPersonne" Type="Int32" Nullable="false" />
+          <Property Name="IdAProduit" Type="Int32" Nullable="false" />
+          <Property Name="IdASCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdACategory" Type="Int32" Nullable="false" />
+          <Property Name="IdAFournisseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DACategory" Relationship="GestStockModel.FK_DAcces_DACategory" FromRole="DAcces" ToRole="DACategory" />
+          <NavigationProperty Name="DACommande" Relationship="GestStockModel.FK_DAcces_DACommande" FromRole="DAcces" ToRole="DACommande" />
+          <NavigationProperty Name="DAFonction" Relationship="GestStockModel.FK_DAcces_DAFonction" FromRole="DAcces" ToRole="DAFonction" />
+          <NavigationProperty Name="DAFournisseur" Relationship="GestStockModel.FK_DAcces_DAFournisseur" FromRole="DAcces" ToRole="DAFournisseur" />
+          <NavigationProperty Name="DAPersonne" Relationship="GestStockModel.FK_DAcces_DAPersonne" FromRole="DAcces" ToRole="DAPersonne" />
+          <NavigationProperty Name="DAProduit" Relationship="GestStockModel.FK_DAcces_DAProduit" FromRole="DAcces" ToRole="DAProduit" />
+          <NavigationProperty Name="DASCategory" Relationship="GestStockModel.FK_DAcces_DASCategory" FromRole="DAcces" ToRole="DASCategory" />
+          <NavigationProperty Name="DAUtilisateur" Relationship="GestStockModel.FK_DAcces_DAUtilisateur" FromRole="DAcces" ToRole="DAUtilisateur" />
+          <NavigationProperty Name="Fonction" Relationship="GestStockModel.FK_Fonction_DAcces" FromRole="DAcces" ToRole="Fonction" />
+          <NavigationProperty Name="User" Relationship="GestStockModel.FK_User_DAcces" FromRole="DAcces" ToRole="User" />
+        </EntityType>
+        <EntityType Name="DACommande">
+          <Key>
+            <PropertyRef Name="IdACommande" />
+          </Key>
+          <Property Name="IdACommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DACommande" FromRole="DACommande" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAFonction">
+          <Key>
+            <PropertyRef Name="IdAFonction" />
+          </Key>
+          <Property Name="IdAFonction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAFonction" FromRole="DAFonction" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAFournisseur">
+          <Key>
+            <PropertyRef Name="IdAFournisseur" />
+          </Key>
+          <Property Name="IdAFournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAFournisseur" FromRole="DAFournisseur" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAPersonne">
+          <Key>
+            <PropertyRef Name="IdAPersonne" />
+          </Key>
+          <Property Name="IdAPersonne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAPersonne" FromRole="DAPersonne" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAProduit">
+          <Key>
+            <PropertyRef Name="IdAProduit" />
+          </Key>
+          <Property Name="IdAProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAProduit" FromRole="DAProduit" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DASCategory">
+          <Key>
+            <PropertyRef Name="IdASCategory" />
+          </Key>
+          <Property Name="IdASCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DASCategory" FromRole="DASCategory" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAUtilisateur">
+          <Key>
+            <PropertyRef Name="IdAUtilisateur" />
+          </Key>
+          <Property Name="IdAUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAUtilisateur" FromRole="DAUtilisateur" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="Fonction">
+          <Key>
+            <PropertyRef Name="IdFonction" />
+          </Key>
+          <Property Name="IdFonction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IdDAcces" Type="Int32" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="D_Creation" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_Fonction_DAcces" FromRole="Fonction" ToRole="DAcces" />
+          <NavigationProperty Name="User" Relationship="GestStockModel.FK_Utilisateur_Fonction" FromRole="Fonction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="IdFournisseur" />
+          </Key>
+          <Property Name="IdFournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_Fournisseur" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="C_Fournisseur" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Mail_Fournisseur" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="AdresseF" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="N_Telephone" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Nombre" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Fournisseur" ToRole="Nombre" />
+        </EntityType>
+        <EntityType Name="Nombre">
+          <Key>
+            <PropertyRef Name="IdNombre" />
+          </Key>
+          <Property Name="IdNombre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuantiteF" Type="Int32" Nullable="false" />
+          <Property Name="IdFournisseur" Type="Int32" Nullable="false" />
+          <Property Name="H_Livraison" Type="Time" Precision="7" />
+          <Property Name="P_Achat" Type="Int32" />
+          <Property Name="D_Livraison" Type="DateTime" Precision="0" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Fournisseur" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Nombre" ToRole="Fournisseur" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Nombre" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IdPersonne" />
+          </Key>
+          <Property Name="IdPersonne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="D_Naissance" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L_Naissance" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="N_Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sexe" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="GestStockModel.FK_Utilisateur_Personne" FromRole="Person" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="NomPro" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Ref_Produit" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="De_Produit" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Co_Produit" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="P_NProduit" Type="Int32" Nullable="false" />
+          <Property Name="P_VProduit" Type="Int32" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="Q_Critique" Type="Int32" Nullable="false" />
+          <Property Name="Q_Fixe" Type="Int32" Nullable="false" />
+          <Property Name="Auto_Appro" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Nombre" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Produit" ToRole="Nombre" />
+          <NavigationProperty Name="SCategory" Relationship="GestStockModel.FK_Produit_SCategory" FromRole="Produit" ToRole="SCategory" />
+          <NavigationProperty Name="Quantite1" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Produit" ToRole="Quantite" />
+        </EntityType>
+        <EntityType Name="Quantite">
+          <Key>
+            <PropertyRef Name="IdQuantite" />
+          </Key>
+          <Property Name="IdQuantite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="IdCommande" Type="Int32" Nullable="false" />
+          <Property Name="Qte" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Quantite" ToRole="Commande" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Quantite" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="SCategory">
+          <Key>
+            <PropertyRef Name="IdSCategory" />
+          </Key>
+          <Property Name="IdSCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="N_SCategory" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="De_SCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="GestStockModel.FK_SCategory_Category" FromRole="SCategory" ToRole="Category" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Produit_SCategory" FromRole="SCategory" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFonction" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonne" Type="Int32" Nullable="false" />
+          <Property Name="Matricule" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="Int32" Nullable="false" />
+          <Property Name="IdDAcces" Type="Int32" Nullable="false" />
+          <Property Name="login" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_User_DAcces" FromRole="User" ToRole="DAcces" />
+          <NavigationProperty Name="Fonction" Relationship="GestStockModel.FK_Utilisateur_Fonction" FromRole="User" ToRole="Fonction" />
+          <NavigationProperty Name="Person" Relationship="GestStockModel.FK_Utilisateur_Personne" FromRole="User" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="V_Acces">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="IdPersonne" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Prenom" />
+            <PropertyRef Name="IdUtilisateur" />
+            <PropertyRef Name="Matricule" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Add_Category" />
+            <PropertyRef Name="Delete_Category" />
+            <PropertyRef Name="Modify_Category" />
+            <PropertyRef Name="IdDAcces" />
+            <PropertyRef Name="isForUser" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="Expr3" />
+            <PropertyRef Name="IdAFonction" />
+            <PropertyRef Name="Add_Fonction" />
+            <PropertyRef Name="Delete_Fonction" />
+            <PropertyRef Name="Modify_Fonction" />
+            <PropertyRef Name="IdAPersonne" />
+            <PropertyRef Name="Add_Personne" />
+            <PropertyRef Name="Delete_Personne" />
+            <PropertyRef Name="Modify_Personne" />
+            <PropertyRef Name="IdAProduit" />
+            <PropertyRef Name="Add_Produit" />
+            <PropertyRef Name="Delete_Produit" />
+            <PropertyRef Name="Modify_Produit" />
+            <PropertyRef Name="IdASCategory" />
+            <PropertyRef Name="Add_SCategory" />
+            <PropertyRef Name="Delete_SCategory" />
+            <PropertyRef Name="Modify_SCategory" />
+            <PropertyRef Name="IdAUtilisateur" />
+            <PropertyRef Name="Add_User" />
+            <PropertyRef Name="Delete_User" />
+            <PropertyRef Name="Modify_User" />
+            <PropertyRef Name="IdFonction" />
+            <PropertyRef Name="IdAFournisseur" />
+            <PropertyRef Name="Add_Fournisseur" />
+            <PropertyRef Name="Delete_Fournisseur" />
+            <PropertyRef Name="Modify_Fournisseur" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="IdPersonne" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="Matricule" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Add_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdDAcces" Type="Int32" Nullable="false" />
+          <Property Name="isForUser" Type="Boolean" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="Expr3" Type="Int32" Nullable="false" />
+          <Property Name="IdAFonction" Type="Int32" Nullable="false" />
+          <Property Name="Add_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdAPersonne" Type="Int32" Nullable="false" />
+          <Property Name="Add_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdAProduit" Type="Int32" Nullable="false" />
+          <Property Name="Add_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdASCategory" Type="Int32" Nullable="false" />
+          <Property Name="Add_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdAUtilisateur" Type="Boolean" Nullable="false" />
+          <Property Name="Add_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdFonction" Type="Int32" Nullable="false" />
+          <Property Name="IdAFournisseur" Type="Int32" Nullable="false" />
+          <Property Name="Add_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Delete_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Modify_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_Produit">
+          <Key>
+            <PropertyRef Name="N_Category" />
+            <PropertyRef Name="De_Category" />
+            <PropertyRef Name="D_Livraison" />
+            <PropertyRef Name="H_Livraison" />
+            <PropertyRef Name="P_AProduit" />
+            <PropertyRef Name="P_VProduit" />
+            <PropertyRef Name="Quantite" />
+            <PropertyRef Name="N_SCategory" />
+            <PropertyRef Name="De_SCategory" />
+            <PropertyRef Name="De_Produit" />
+            <PropertyRef Name="IdCategory" />
+            <PropertyRef Name="IdSCategory" />
+            <PropertyRef Name="IdProduit" />
+            <PropertyRef Name="IdFournisseur" />
+            <PropertyRef Name="N_Fournisseur" />
+          </Key>
+          <Property Name="N_Category" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="De_Category" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="D_Livraison" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="H_Livraison" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="P_AProduit" Type="Int32" Nullable="false" />
+          <Property Name="P_VProduit" Type="Int32" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="N_SCategory" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="De_SCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="De_Produit" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdSCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="IdFournisseur" Type="Int32" Nullable="false" />
+          <Property Name="N_Fournisseur" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NomPro" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_User">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+            <PropertyRef Name="IdPersonne" />
+            <PropertyRef Name="IdFonction" />
+            <PropertyRef Name="Matricule" />
+            <PropertyRef Name="Nom" />
+            <PropertyRef Name="Prenom" />
+            <PropertyRef Name="D_Naissance" />
+            <PropertyRef Name="L_Naissance" />
+            <PropertyRef Name="Adresse" />
+            <PropertyRef Name="N_Telephone" />
+            <PropertyRef Name="Sexe" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Libelle" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonne" Type="Int32" Nullable="false" />
+          <Property Name="IdFonction" Type="Int32" Nullable="false" />
+          <Property Name="Matricule" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="D_Naissance" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L_Naissance" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="N_Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sexe" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_SCategory_Category">
+          <End Type="GestStockModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="GestStockModel.SCategory" Role="SCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="SCategory">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quantite_Commande">
+          <End Type="GestStockModel.Commande" Role="Commande" Multiplicity="1" />
+          <End Type="GestStockModel.Quantite" Role="Quantite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="IdCommande" />
+            </Principal>
+            <Dependent Role="Quantite">
+              <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DACategory">
+          <End Type="GestStockModel.DACategory" Role="DACategory" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DACategory">
+              <PropertyRef Name="IdACategory" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdACategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DACommande">
+          <End Type="GestStockModel.DACommande" Role="DACommande" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DACommande">
+              <PropertyRef Name="IdACommande" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdACommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAFonction">
+          <End Type="GestStockModel.DAFonction" Role="DAFonction" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAFonction">
+              <PropertyRef Name="IdAFonction" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAFournisseur">
+          <End Type="GestStockModel.DAFournisseur" Role="DAFournisseur" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAFournisseur">
+              <PropertyRef Name="IdAFournisseur" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAFournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAPersonne">
+          <End Type="GestStockModel.DAPersonne" Role="DAPersonne" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAPersonne">
+              <PropertyRef Name="IdAPersonne" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAProduit">
+          <End Type="GestStockModel.DAProduit" Role="DAProduit" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAProduit">
+              <PropertyRef Name="IdAProduit" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DASCategory">
+          <End Type="GestStockModel.DASCategory" Role="DASCategory" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DASCategory">
+              <PropertyRef Name="IdASCategory" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdASCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAUtilisateur">
+          <End Type="GestStockModel.DAUtilisateur" Role="DAUtilisateur" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAUtilisateur">
+              <PropertyRef Name="IdAUtilisateur" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="isForUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fonction_DAcces">
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="0..1" />
+          <End Type="GestStockModel.Fonction" Role="Fonction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAcces">
+              <PropertyRef Name="IdDAcces" />
+            </Principal>
+            <Dependent Role="Fonction">
+              <PropertyRef Name="IdDAcces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DAcces">
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="1" />
+          <End Type="GestStockModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAcces">
+              <PropertyRef Name="IdDAcces" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdDAcces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Fonction">
+          <End Type="GestStockModel.Fonction" Role="Fonction" Multiplicity="1" />
+          <End Type="GestStockModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonction">
+              <PropertyRef Name="IdFonction" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdFonction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nombre_Fournisseur">
+          <End Type="GestStockModel.Fournisseur" Role="Fournisseur" Multiplicity="1" />
+          <End Type="GestStockModel.Nombre" Role="Nombre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="IdFournisseur" />
+            </Principal>
+            <Dependent Role="Nombre">
+              <PropertyRef Name="IdFournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nombre_Produit">
+          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="1" />
+          <End Type="GestStockModel.Nombre" Role="Nombre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Nombre">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_Personne">
+          <End Type="GestStockModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="GestStockModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="IdPersonne" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdPersonne" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produit_SCategory">
+          <End Type="GestStockModel.SCategory" Role="SCategory" Multiplicity="1" />
+          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCategory">
+              <PropertyRef Name="IdSCategory" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="IdSCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quantite_Produit">
+          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="1" />
+          <End Type="GestStockModel.Quantite" Role="Quantite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Quantite">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LogsUsers">
+          <Key>
+            <PropertyRef Name="IdLogsUser" />
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="IdLogsUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestStockModelStoreContainer" CdmEntityContainer="GestStockEntities">
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="GestStockModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="De_Category" ColumnName="De_Category" />
+                <ScalarProperty Name="N_Category" ColumnName="N_Category" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commande">
+            <EntityTypeMapping TypeName="GestStockModel.Commande">
+              <MappingFragment StoreEntitySet="Commande">
+                <ScalarProperty Name="H_Vente" ColumnName="H_Vente" />
+                <ScalarProperty Name="D_Vente" ColumnName="D_Vente" />
+                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DACategory">
+            <EntityTypeMapping TypeName="GestStockModel.DACategory">
+              <MappingFragment StoreEntitySet="DACategory">
+                <ScalarProperty Name="Modify_Category" ColumnName="Modify_Category" />
+                <ScalarProperty Name="Delete_Category" ColumnName="Delete_Category" />
+                <ScalarProperty Name="Add_Category" ColumnName="Add_Category" />
+                <ScalarProperty Name="IdACategory" ColumnName="IdACategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAcces">
+            <EntityTypeMapping TypeName="GestStockModel.DAcces">
+              <MappingFragment StoreEntitySet="DAcces">
+                <ScalarProperty Name="IdAFournisseur" ColumnName="IdAFournisseur" />
+                <ScalarProperty Name="IdACategory" ColumnName="IdACategory" />
+                <ScalarProperty Name="IdASCategory" ColumnName="IdASCategory" />
+                <ScalarProperty Name="IdAProduit" ColumnName="IdAProduit" />
+                <ScalarProperty Name="IdAPersonne" ColumnName="IdAPersonne" />
+                <ScalarProperty Name="IdAFonction" ColumnName="IdAFonction" />
+                <ScalarProperty Name="IdACommande" ColumnName="IdACommande" />
+                <ScalarProperty Name="isForUser" ColumnName="isForUser" />
+                <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DACommande">
+            <EntityTypeMapping TypeName="GestStockModel.DACommande">
+              <MappingFragment StoreEntitySet="DACommande">
+                <ScalarProperty Name="Modify_Commande" ColumnName="Modify_Commande" />
+                <ScalarProperty Name="Delete_Commande" ColumnName="Delete_Commande" />
+                <ScalarProperty Name="Add_Commande" ColumnName="Add_Commande" />
+                <ScalarProperty Name="IdACommande" ColumnName="IdACommande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAFonction">
+            <EntityTypeMapping TypeName="GestStockModel.DAFonction">
+              <MappingFragment StoreEntitySet="DAFonction">
+                <ScalarProperty Name="Modify_Fonction" ColumnName="Modify_Fonction" />
+                <ScalarProperty Name="Delete_Fonction" ColumnName="Delete_Fonction" />
+                <ScalarProperty Name="Add_Fonction" ColumnName="Add_Fonction" />
+                <ScalarProperty Name="IdAFonction" ColumnName="IdAFonction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAFournisseur">
+            <EntityTypeMapping TypeName="GestStockModel.DAFournisseur">
+              <MappingFragment StoreEntitySet="DAFournisseur">
+                <ScalarProperty Name="Modify_Fournisseur" ColumnName="Modify_Fournisseur" />
+                <ScalarProperty Name="Delete_Fournisseur" ColumnName="Delete_Fournisseur" />
+                <ScalarProperty Name="Add_Fournisseur" ColumnName="Add_Fournisseur" />
+                <ScalarProperty Name="IdAFournisseur" ColumnName="IdAFournisseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAPersonne">
+            <EntityTypeMapping TypeName="GestStockModel.DAPersonne">
+              <MappingFragment StoreEntitySet="DAPersonne">
+                <ScalarProperty Name="Modify_Personne" ColumnName="Modify_Personne" />
+                <ScalarProperty Name="Delete_Personne" ColumnName="Delete_Personne" />
+                <ScalarProperty Name="Add_Personne" ColumnName="Add_Personne" />
+                <ScalarProperty Name="IdAPersonne" ColumnName="IdAPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAProduit">
+            <EntityTypeMapping TypeName="GestStockModel.DAProduit">
+              <MappingFragment StoreEntitySet="DAProduit">
+                <ScalarProperty Name="Modify_Produit" ColumnName="Modify_Produit" />
+                <ScalarProperty Name="Delete_Produit" ColumnName="Delete_Produit" />
+                <ScalarProperty Name="Add_Produit" ColumnName="Add_Produit" />
+                <ScalarProperty Name="IdAProduit" ColumnName="IdAProduit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DASCategory">
+            <EntityTypeMapping TypeName="GestStockModel.DASCategory">
+              <MappingFragment StoreEntitySet="DASCategory">
+                <ScalarProperty Name="Modify_SCategory" ColumnName="Modify_SCategory" />
+                <ScalarProperty Name="Delete_SCategory" ColumnName="Delete_SCategory" />
+                <ScalarProperty Name="Add_SCategory" ColumnName="Add_SCategory" />
+                <ScalarProperty Name="IdASCategory" ColumnName="IdASCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAUtilisateur">
+            <EntityTypeMapping TypeName="GestStockModel.DAUtilisateur">
+              <MappingFragment StoreEntitySet="DAUtilisateur">
+                <ScalarProperty Name="Modify_User" ColumnName="Modify_User" />
+                <ScalarProperty Name="Delete_User" ColumnName="Delete_User" />
+                <ScalarProperty Name="Add_User" ColumnName="Add_User" />
+                <ScalarProperty Name="IdAUtilisateur" ColumnName="IdAUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fonction">
+            <EntityTypeMapping TypeName="GestStockModel.Fonction">
+              <MappingFragment StoreEntitySet="Fonction">
+                <ScalarProperty Name="D_Creation" ColumnName="D_Creation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseur">
+            <EntityTypeMapping TypeName="GestStockModel.Fournisseur">
+              <MappingFragment StoreEntitySet="Fournisseur">
+                <ScalarProperty Name="N_Telephone" ColumnName="N_Telephone" />
+                <ScalarProperty Name="AdresseF" ColumnName="AdresseF" />
+                <ScalarProperty Name="Mail_Fournisseur" ColumnName="Mail_Fournisseur" />
+                <ScalarProperty Name="C_Fournisseur" ColumnName="C_Fournisseur" />
+                <ScalarProperty Name="N_Fournisseur" ColumnName="N_Fournisseur" />
+                <ScalarProperty Name="IdFournisseur" ColumnName="IdFournisseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nombre">
+            <EntityTypeMapping TypeName="GestStockModel.Nombre">
+              <MappingFragment StoreEntitySet="Nombre">
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="D_Livraison" ColumnName="D_Livraison" />
+                <ScalarProperty Name="P_Achat" ColumnName="P_Achat" />
+                <ScalarProperty Name="H_Livraison" ColumnName="H_Livraison" />
+                <ScalarProperty Name="IdFournisseur" ColumnName="IdFournisseur" />
+                <ScalarProperty Name="QuantiteF" ColumnName="QuantiteF" />
+                <ScalarProperty Name="IdNombre" ColumnName="IdNombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="GestStockModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="N_Telephone" ColumnName="N_Telephone" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="L_Naissance" ColumnName="L_Naissance" />
+                <ScalarProperty Name="D_Naissance" ColumnName="D_Naissance" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produit">
+            <EntityTypeMapping TypeName="GestStockModel.Produit">
+              <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="Auto_Appro" ColumnName="Auto_Appro" />
+                <ScalarProperty Name="Q_Fixe" ColumnName="Q_Fixe" />
+                <ScalarProperty Name="Q_Critique" ColumnName="Q_Critique" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="P_VProduit" ColumnName="P_VProduit" />
+                <ScalarProperty Name="P_NProduit" ColumnName="P_NProduit" />
+                <ScalarProperty Name="Co_Produit" ColumnName="Co_Produit" />
+                <ScalarProperty Name="De_Produit" ColumnName="De_Produit" />
+                <ScalarProperty Name="Ref_Produit" ColumnName="Ref_Produit" />
+                <ScalarProperty Name="NomPro" ColumnName="NomPro" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+                <ScalarProperty Name="IdSCategory" ColumnName="IdSCategory" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quantite">
+            <EntityTypeMapping TypeName="GestStockModel.Quantite">
+              <MappingFragment StoreEntitySet="Quantite">
+                <ScalarProperty Name="Qte" ColumnName="Qte" />
+                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="IdQuantite" ColumnName="IdQuantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCategory">
+            <EntityTypeMapping TypeName="GestStockModel.SCategory">
+              <MappingFragment StoreEntitySet="SCategory">
+                <ScalarProperty Name="De_SCategory" ColumnName="De_SCategory" />
+                <ScalarProperty Name="N_SCategory" ColumnName="N_SCategory" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="IdSCategory" ColumnName="IdSCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GestStockModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="GestStockModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+                <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
+                <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Acces">
+            <EntityTypeMapping TypeName="GestStockModel.V_Acces">
+              <MappingFragment StoreEntitySet="V_Acces">
+                <ScalarProperty Name="Modify_Fournisseur" ColumnName="Modify_Fournisseur" />
+                <ScalarProperty Name="Delete_Fournisseur" ColumnName="Delete_Fournisseur" />
+                <ScalarProperty Name="Add_Fournisseur" ColumnName="Add_Fournisseur" />
+                <ScalarProperty Name="IdAFournisseur" ColumnName="IdAFournisseur" />
+                <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
+                <ScalarProperty Name="Modify_User" ColumnName="Modify_User" />
+                <ScalarProperty Name="Delete_User" ColumnName="Delete_User" />
+                <ScalarProperty Name="Add_User" ColumnName="Add_User" />
+                <ScalarProperty Name="IdAUtilisateur" ColumnName="IdAUtilisateur" />
+                <ScalarProperty Name="Modify_SCategory" ColumnName="Modify_SCategory" />
+                <ScalarProperty Name="Delete_SCategory" ColumnName="Delete_SCategory" />
+                <ScalarProperty Name="Add_SCategory" ColumnName="Add_SCategory" />
+                <ScalarProperty Name="IdASCategory" ColumnName="IdASCategory" />
+                <ScalarProperty Name="Modify_Produit" ColumnName="Modify_Produit" />
+                <ScalarProperty Name="Delete_Produit" ColumnName="Delete_Produit" />
+                <ScalarProperty Name="Add_Produit" ColumnName="Add_Produit" />
+                <ScalarProperty Name="IdAProduit" ColumnName="IdAProduit" />
+                <ScalarProperty Name="Modify_Personne" ColumnName="Modify_Personne" />
+                <ScalarProperty Name="Delete_Personne" ColumnName="Delete_Personne" />
+                <ScalarProperty Name="Add_Personne" ColumnName="Add_Personne" />
+                <ScalarProperty Name="IdAPersonne" ColumnName="IdAPersonne" />
+                <ScalarProperty Name="Modify_Fonction" ColumnName="Modify_Fonction" />
+                <ScalarProperty Name="Delete_Fonction" ColumnName="Delete_Fonction" />
+                <ScalarProperty Name="Add_Fonction" ColumnName="Add_Fonction" />
+                <ScalarProperty Name="IdAFonction" ColumnName="IdAFonction" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="isForUser" ColumnName="isForUser" />
+                <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
+                <ScalarProperty Name="Modify_Category" ColumnName="Modify_Category" />
+                <ScalarProperty Name="Delete_Category" ColumnName="Delete_Category" />
+                <ScalarProperty Name="Add_Category" ColumnName="Add_Category" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Produit">
+            <EntityTypeMapping TypeName="GestStockModel.V_Produit">
+              <MappingFragment StoreEntitySet="V_Produit">
+                <ScalarProperty Name="NomPro" ColumnName="NomPro" />
+                <ScalarProperty Name="N_Fournisseur" ColumnName="N_Fournisseur" />
+                <ScalarProperty Name="IdFournisseur" ColumnName="IdFournisseur" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="IdSCategory" ColumnName="IdSCategory" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="De_Produit" ColumnName="De_Produit" />
+                <ScalarProperty Name="De_SCategory" ColumnName="De_SCategory" />
+                <ScalarProperty Name="N_SCategory" ColumnName="N_SCategory" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="P_VProduit" ColumnName="P_VProduit" />
+                <ScalarProperty Name="P_AProduit" ColumnName="P_AProduit" />
+                <ScalarProperty Name="H_Livraison" ColumnName="H_Livraison" />
+                <ScalarProperty Name="D_Livraison" ColumnName="D_Livraison" />
+                <ScalarProperty Name="De_Category" ColumnName="De_Category" />
+                <ScalarProperty Name="N_Category" ColumnName="N_Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_User">
+            <EntityTypeMapping TypeName="GestStockModel.V_User">
+              <MappingFragment StoreEntitySet="V_User">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="N_Telephone" ColumnName="N_Telephone" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="L_Naissance" ColumnName="L_Naissance" />
+                <ScalarProperty Name="D_Naissance" ColumnName="D_Naissance" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+                <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
+                <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogsUsers">
+            <EntityTypeMapping TypeName="GestStockModel.LogsUsers">
+              <MappingFragment StoreEntitySet="LogsUsers">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdLogsUser" ColumnName="IdLogsUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
