@@ -162,14 +162,20 @@
     <Content Include="App_Data\SideMenu.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\TopMenu.xml" />
+    <Content Include="App_Data\TopMenu.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="CeerFournisseur.aspx" />
+    <Content Include="Content\Acces.css" />
+    <Content Include="Content\all.css" />
+    <Content Include="Content\GestionStock.js" />
     <Content Include="Content\Images\AquaHeader.jpg" />
     <Content Include="Content\Images\BlackGlassHeader.jpg" />
     <Content Include="Content\Images\GlassHeader.jpg" />
     <Content Include="Content\Images\JrLogo.png" />
     <Content Include="Content\Images\PlasticBlueHeader.jpg" />
     <Content Include="Content\Images\RedWineHeader.jpg" />
+    <Content Include="Content\LoginPage.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreerAcces.aspx" />
     <Content Include="CreerCategorie.aspx" />
@@ -196,6 +202,7 @@
       <LastGenOutput>GestStockModel.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="JrLogo.png" />
     <Content Include="LoginPage.aspx" />
   </ItemGroup>
   <ItemGroup>
