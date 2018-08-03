@@ -3,7 +3,7 @@
  <head>
     
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="CreerFournisseur.css" />
+        <link rel="stylesheet" type="text/css" href="Content/all.css" />
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -18,7 +18,7 @@
 			<div class="section-content">
 				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
 				<h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
-			</div>
+			</div> 
 			<div class="contact-section">
 			<div class="container">
 				<form>
