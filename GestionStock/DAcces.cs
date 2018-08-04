@@ -22,15 +22,19 @@ namespace GestionStock
         }
     
         public int IdDAcces { get; set; }
-        public int isForUser { get; set; }
+        public Nullable<int> Niveau { get; set; }
+        public bool isForUser { get; set; }
         public int IdACommande { get; set; }
         public int IdAFonction { get; set; }
         public int IdAPersonne { get; set; }
         public int IdAProduit { get; set; }
         public int IdASCategory { get; set; }
+        public int IdAApprovisionnement { get; set; }
+        public int IdAVente { get; set; }
         public int IdACategory { get; set; }
         public int IdAFournisseur { get; set; }
     
+        public virtual DAApprovisionnement DAApprovisionnement { get; set; }
         public virtual DACategory DACategory { get; set; }
         public virtual DACommande DACommande { get; set; }
         public virtual DAFonction DAFonction { get; set; }
@@ -39,6 +43,7 @@ namespace GestionStock
         public virtual DAProduit DAProduit { get; set; }
         public virtual DASCategory DASCategory { get; set; }
         public virtual DAUtilisateur DAUtilisateur { get; set; }
+        public virtual DAVente DAVente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fonction> Fonction { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

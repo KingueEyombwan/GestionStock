@@ -25,19 +25,19 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
             
-        <dx:ASPxPanel ID="RightPane" runat="server" FixedPosition="WindowRight" ClientInstanceName="rightPane" CssClass="rightPane" Collapsible="true">
+        <%--<dx:ASPxPanel ID="RightPane" runat="server" FixedPosition="WindowRight" ClientInstanceName="rightPane" CssClass="rightPane" Collapsible="true">
             <SettingsAdaptivity CollapseAtWindowInnerWidth="1023" />
             <Styles>
                 <Panel CssClass="panel"></Panel>
             </Styles>
             <PanelCollection>
-                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">--%>
                         <%-- DXCOMMENT: Configure the right panel's ASPxCalendar --%>
-<dx:ASPxCalendar runat="server" ID="ASPxCalendar1" Width="100%" Border-BorderWidth="0px">
+<%--<dx:ASPxCalendar runat="server" ID="ASPxCalendar1" Width="100%" Border-BorderWidth="0px">
 </dx:ASPxCalendar>
                 </dx:PanelContent>
             </PanelCollection>
-        </dx:ASPxPanel>
+        </dx:ASPxPanel>--%>
 
     
 <%-- DXCOMMENT: Configure a datasource for the left panel's ASPxNavBar --%>

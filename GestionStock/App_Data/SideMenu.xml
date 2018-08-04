@@ -33,7 +33,7 @@
   </group>
 <group Text="Autres">
     <item Text="Inventaire" />
-    <item Text="Journalisation" />
+    <item Text="Journalisation" NavigateUrl="Journaux.aspx" />
     <item Text="Mail" />
     <item Text="Archiver" />
     <item Text="Produits Plus consommés"/>

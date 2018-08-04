@@ -52,12 +52,12 @@ namespace GestionStock
                     {
                         context.SaveChanges();
                         HttpContext.Current.Session.Add("user", v_User);
+                        HttpContext.Current.Response.Redirect("CreerProduit.aspx");
                     }
                     catch (Exception ex)
                     {
 
                     }
-                    HttpContext.Current.Response.Redirect("GererProduit.aspx");
                 }
             }
         }

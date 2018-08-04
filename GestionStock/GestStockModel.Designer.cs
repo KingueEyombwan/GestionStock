@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\KINGUE ARISTIDE\Documents\Visual Studio 2015\Projects\GestionStock\GestionStock\GestStockModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\wilfried.tiani\Source\Repos\GestionStock\GestionStock\GestStockModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -21,9 +21,9 @@ namespace GestionStock
         }
     
         public int IdAFournisseur { get; set; }
-        public string Add_Fournisseur { get; set; }
-        public string Delete_Fournisseur { get; set; }
-        public string Modify_Fournisseur { get; set; }
+        public bool Add_Fournisseur { get; set; }
+        public bool Delete_Fournisseur { get; set; }
+        public bool Modify_Fournisseur { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

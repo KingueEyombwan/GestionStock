@@ -17,8 +17,8 @@ namespace GestionStock
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produit()
         {
-            this.Nombre = new HashSet<Nombre>();
-            this.Quantite1 = new HashSet<Quantite>();
+            this.Approvisionnement = new HashSet<Approvisionnement>();
+            this.Vente = new HashSet<Vente>();
         }
     
         public int IdProduit { get; set; }
@@ -29,16 +29,16 @@ namespace GestionStock
         public string De_Produit { get; set; }
         public string Co_Produit { get; set; }
         public int P_NProduit { get; set; }
-        public int P_VProduit { get; set; }
         public int Quantite { get; set; }
         public int Q_Critique { get; set; }
         public int Q_Fixe { get; set; }
-        public string Auto_Appro { get; set; }
+        public bool Auto_Appro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Nombre> Nombre { get; set; }
+        public virtual ICollection<Approvisionnement> Approvisionnement { get; set; }
         public virtual SCategory SCategory { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quantite> Quantite1 { get; set; }
+        public virtual ICollection<Vente> Vente { get; set; }
     }
 }

@@ -17,14 +17,13 @@ namespace GestionStock
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Commande()
         {
-            this.Quantite = new HashSet<Quantite>();
+            this.Vente = new HashSet<Vente>();
         }
     
         public int IdCommande { get; set; }
         public System.DateTime D_Vente { get; set; }
-        public System.TimeSpan H_Vente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quantite> Quantite { get; set; }
+        public virtual ICollection<Vente> Vente { get; set; }
     }
 }

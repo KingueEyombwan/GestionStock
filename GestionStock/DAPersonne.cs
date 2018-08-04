@@ -21,9 +21,9 @@ namespace GestionStock
         }
     
         public int IdAPersonne { get; set; }
-        public string Add_Personne { get; set; }
-        public string Delete_Personne { get; set; }
-        public string Modify_Personne { get; set; }
+        public bool Add_Personne { get; set; }
+        public bool Delete_Personne { get; set; }
+        public bool Modify_Personne { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

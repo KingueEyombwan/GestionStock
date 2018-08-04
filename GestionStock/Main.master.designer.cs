@@ -40,24 +40,6 @@ namespace GestionStock {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         
         /// <summary>
-        /// RightPane control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel RightPane;
-        
-        /// <summary>
-        /// ASPxCalendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCalendar ASPxCalendar1;
-        
-        /// <summary>
         /// XmlDataSourceLeft control.
         /// </summary>
         /// <remarks>

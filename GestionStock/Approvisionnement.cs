@@ -12,14 +12,18 @@ namespace GestionStock
     using System;
     using System.Collections.Generic;
     
-    public partial class Quantite
+    public partial class Approvisionnement
     {
-        public int IdQuantite { get; set; }
+        public int IdApprovisionnement { get; set; }
+        public int Quantite { get; set; }
+        public int IdFournisseur { get; set; }
+        public int Prix { get; set; }
+        public Nullable<System.DateTime> DateLivraison { get; set; }
         public int IdProduit { get; set; }
-        public int IdCommande { get; set; }
-        public int Qte { get; set; }
+        public System.DateTime DateCommande { get; set; }
+        public bool isCompleted { get; set; }
     
-        public virtual Commande Commande { get; set; }
+        public virtual Fournisseur Fournisseur { get; set; }
         public virtual Produit Produit { get; set; }
     }
 }

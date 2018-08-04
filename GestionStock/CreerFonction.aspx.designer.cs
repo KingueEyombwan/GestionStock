@@ -58,57 +58,66 @@ namespace GestionStock {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea CreerFonctiondescription;
         
         /// <summary>
-        /// droit control.
+        /// FonctionUtilisateur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox droit;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionUtilisateur;
         
         /// <summary>
-        /// Checkbox1 control.
+        /// FonctionProduit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionProduit;
         
         /// <summary>
-        /// Checkbox2 control.
+        /// FonctionFournisseur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionFournisseur;
         
         /// <summary>
-        /// Checkbox3 control.
+        /// FonctionVente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionVente;
         
         /// <summary>
-        /// Checkbox4 control.
+        /// FonctionApprovisionnement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionApprovisionnement;
         
         /// <summary>
-        /// Checkbox5 control.
+        /// FonctionDroitAcces control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox FonctionDroitAcces;
+        
+        /// <summary>
+        /// validerboutonFonction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton validerboutonFonction;
     }
 }

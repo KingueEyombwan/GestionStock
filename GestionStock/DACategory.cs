@@ -21,9 +21,9 @@ namespace GestionStock
         }
     
         public int IdACategory { get; set; }
-        public string Add_Category { get; set; }
-        public string Delete_Category { get; set; }
-        public string Modify_Category { get; set; }
+        public bool Add_Category { get; set; }
+        public bool Delete_Category { get; set; }
+        public bool Modify_Category { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

@@ -12,18 +12,18 @@ namespace GestionStock
     using System;
     using System.Collections.Generic;
     
-    public partial class DAFonction
+    public partial class DAVente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DAFonction()
+        public DAVente()
         {
             this.DAcces = new HashSet<DAcces>();
         }
     
-        public int IdAFonction { get; set; }
-        public bool Add_Fonction { get; set; }
-        public bool Delete_Fonction { get; set; }
-        public bool Modify_Fonction { get; set; }
+        public bool Add_Vente { get; set; }
+        public bool Delete_Vente { get; set; }
+        public bool Modify_Vente { get; set; }
+        public int IdAVente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

@@ -14,6 +14,8 @@ namespace GestionStock
         {
             validerboutonCreerFournisseur.ServerClick += CreationFournisseur;
             user = (V_User) HttpContext.Current.Session["user"];
+            if (user == null)
+                HttpContext.Current.Response.Redirect("LoginPage.aspx");
         }
 
         protected void CreationFournisseur(object sender, EventArgs e)

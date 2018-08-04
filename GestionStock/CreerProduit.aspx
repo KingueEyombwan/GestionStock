@@ -17,8 +17,6 @@
     <body>
 <section id="contact">
 			<div class="section-content">
-				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
-				<h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
 			</div>
 			<div class="contact-section">
 			<div class="container">
@@ -84,7 +82,7 @@
 							</div>
 							<div class="form-group">
 								<label for="telephone">Date et Heure Livraison</label>
-								<input type="tel" class="form-control" id="CreerProduitDate" runat="server" placeholder=" Date Livraison">
+								<input type="date" class="form-control" id="CreerProduitDate" runat="server" placeholder=" Date Livraison">
 							</div>
 							<div>
 								<button type="button" id="validerbotonProduit" runat="server" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Valider</button>

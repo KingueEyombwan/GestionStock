@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="CreerFonction.aspx.cs" Inherits="GestionStock.CreerFonction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <head>
+    <head>
     
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="Content/all.css" />
@@ -48,12 +48,12 @@
 			  			</div>
 						<div class="form-groupe">
 							<b>Cochez les différents droits:</b><br/>
-							<input type= "checkbox" name= "droit" id= "droit" runat="server"/><label for= "loisir">Utilisateur</label><br/>
-							<input type= "checkbox" name= "droit" id= "Checkbox1" runat="server"/><label for= "loisir">Produit</label><br/>
-							<input type= "checkbox" name= "droit" id= "Checkbox2" runat="server"/><label for= "loisir">Fournisseur</label><br/>
-							<input type= "checkbox" name= "droit" id= "Checkbox3" runat="server"/><label for= "loisir">Vente</label><br/>
-                            <input type= "checkbox" name= "droit" id= "Checkbox4" runat="server"/><label for= "loisir">Approvisionnement</label><br />
-							<input type= "checkbox" name= "droit" id= "Checkbox5" runat="server"/><label for= "loisir">Droits d'accés</label><br/>
+							<input type= "checkbox" name= "droit" id= "FonctionUtilisateur" runat="server"/><label for= "loisir">Utilisateur</label><br/>
+							<input type= "checkbox" name= "droit" id= "FonctionProduit" runat="server"/><label for= "loisir">Produit</label><br/>
+							<input type= "checkbox" name= "droit" id= "FonctionFournisseur" runat="server"/><label for= "loisir">Fournisseur</label><br/>
+							<input type= "checkbox" name= "droit" id= "FonctionVente" runat="server"/><label for= "loisir">Vente</label><br/>
+                            <input type= "checkbox" name= "droit" id= "FonctionApprovisionnement" runat="server"/><label for= "loisir">Approvisionnement</label><br />
+							<input type= "checkbox" name= "droit" id= "FonctionDroitAcces" runat="server"/><label for= "loisir">Droits d'accés</label><br/>
 						</div>
 						
 			  			<div>

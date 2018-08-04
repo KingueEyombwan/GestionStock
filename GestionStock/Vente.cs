@@ -12,17 +12,16 @@ namespace GestionStock
     using System;
     using System.Collections.Generic;
     
-    public partial class Nombre
+    public partial class Vente
     {
-        public int IdNombre { get; set; }
-        public int QuantiteF { get; set; }
-        public int IdFournisseur { get; set; }
-        public Nullable<System.TimeSpan> H_Livraison { get; set; }
-        public Nullable<int> P_Achat { get; set; }
-        public Nullable<System.DateTime> D_Livraison { get; set; }
+        public int IdVente { get; set; }
         public int IdProduit { get; set; }
+        public int IdCommande { get; set; }
+        public int P_VProduit { get; set; }
+        public int Qte { get; set; }
+        public string Conso_Interne { get; set; }
     
-        public virtual Fournisseur Fournisseur { get; set; }
+        public virtual Commande Commande { get; set; }
         public virtual Produit Produit { get; set; }
     }
 }

@@ -13,21 +13,21 @@ namespace GestionStock {
     public partial class GererAcces {
         
         /// <summary>
-        /// form1 control.
+        /// ASPxGridViewDAcces control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::DevExpress.Web.ASPxGridView ASPxGridViewDAcces;
         
         /// <summary>
-        /// ASPxGridView1 control.
+        /// EntityServerModeDataSourceDAcces control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
+        protected global::DevExpress.Data.Linq.EntityServerModeDataSource EntityServerModeDataSourceDAcces;
     }
 }

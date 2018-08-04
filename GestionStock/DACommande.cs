@@ -21,9 +21,9 @@ namespace GestionStock
         }
     
         public int IdACommande { get; set; }
-        public string Add_Commande { get; set; }
-        public string Delete_Commande { get; set; }
-        public string Modify_Commande { get; set; }
+        public bool Add_Commande { get; set; }
+        public bool Delete_Commande { get; set; }
+        public bool Modify_Commande { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

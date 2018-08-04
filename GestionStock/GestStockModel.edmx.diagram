@@ -4,32 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a6e7b777a6524445aba7802a1d4ce5ec" Name="Diagram1" ZoomLevel="78">
-        <EntityTypeShape EntityType="GestStockModel.Category" Width="1.5" PointX="7.75" PointY="8" />
-        <EntityTypeShape EntityType="GestStockModel.Commande" Width="1.5" PointX="12.25" PointY="4" />
-        <EntityTypeShape EntityType="GestStockModel.DACategory" Width="1.5" PointX="0.75" PointY="19.75" />
-        <EntityTypeShape EntityType="GestStockModel.DAcces" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="GestStockModel.DACommande" Width="1.5" PointX="0.75" PointY="14.375" />
-        <EntityTypeShape EntityType="GestStockModel.DAFonction" Width="1.5" PointX="0.75" PointY="11.625" />
-        <EntityTypeShape EntityType="GestStockModel.DAFournisseur" Width="1.5" PointX="0.75" PointY="8.875" />
-        <EntityTypeShape EntityType="GestStockModel.DAPersonne" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="GestStockModel.DAProduit" Width="1.5" PointX="0.75" PointY="6.125" />
-        <EntityTypeShape EntityType="GestStockModel.DASCategory" Width="1.5" PointX="0.75" PointY="22.5" />
-        <EntityTypeShape EntityType="GestStockModel.DAUtilisateur" Width="1.5" PointX="0.75" PointY="17" />
-        <EntityTypeShape EntityType="GestStockModel.Fonction" Width="1.5" PointX="5.25" PointY="2.125" />
-        <EntityTypeShape EntityType="GestStockModel.Fournisseur" Width="1.5" PointX="15.25" PointY="3.75" />
-        <EntityTypeShape EntityType="GestStockModel.Nombre" Width="1.5" PointX="17.5" PointY="7.625" />
-        <EntityTypeShape EntityType="GestStockModel.Person" Width="1.5" PointX="5.25" PointY="6.875" />
-        <EntityTypeShape EntityType="GestStockModel.Produit" Width="1.5" PointX="12.25" PointY="6.875" />
-        <EntityTypeShape EntityType="GestStockModel.Quantite" Width="1.5" PointX="14.5" PointY="7.875" />
-        <EntityTypeShape EntityType="GestStockModel.SCategory" Width="1.5" PointX="10" PointY="7.875" />
-        <EntityTypeShape EntityType="GestStockModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="GestStockModel.User" Width="1.5" PointX="7.5" PointY="1.875" />
-        <EntityTypeShape EntityType="GestStockModel.V_Acces" Width="1.5" PointX="2.75" PointY="10.75" />
-        <EntityTypeShape EntityType="GestStockModel.V_Produit" Width="1.5" PointX="4.75" PointY="10.75" />
-        <EntityTypeShape EntityType="GestStockModel.V_User" Width="1.5" PointX="6.75" PointY="10.75" />
+      <Diagram DiagramId="a6e7b777a6524445aba7802a1d4ce5ec" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="GestStockModel.Approvisionnement" Width="1.5" PointX="12" PointY="4.75" />
+        <EntityTypeShape EntityType="GestStockModel.Category" Width="1.5" PointX="5.25" PointY="9.375" />
+        <EntityTypeShape EntityType="GestStockModel.Commande" Width="1.5" PointX="12.75" PointY="1.375" />
+        <EntityTypeShape EntityType="GestStockModel.DAApprovisionnement" Width="1.5" PointX="0.75" PointY="22.625" />
+        <EntityTypeShape EntityType="GestStockModel.DACategory" Width="1.5" PointX="0.75" PointY="30.75" />
+        <EntityTypeShape EntityType="GestStockModel.DAcces" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="GestStockModel.DACommande" Width="1.5" PointX="0.75" PointY="19.875" />
+        <EntityTypeShape EntityType="GestStockModel.DAFonction" Width="1.5" PointX="0.75" PointY="17.125" />
+        <EntityTypeShape EntityType="GestStockModel.DAFournisseur" Width="1.5" PointX="0.75" PointY="11.625" />
+        <EntityTypeShape EntityType="GestStockModel.DAPersonne" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="GestStockModel.DAProduit" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="GestStockModel.DASCategory" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="GestStockModel.DAUtilisateur" Width="1.5" PointX="0.75" PointY="25.375" />
+        <EntityTypeShape EntityType="GestStockModel.DAVente" Width="1.5" PointX="0.75" PointY="28.125" />
+        <EntityTypeShape EntityType="GestStockModel.Fonction" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="GestStockModel.Fournisseur" Width="1.5" PointX="9.75" PointY="1" />
+        <EntityTypeShape EntityType="GestStockModel.LogsUsers" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="GestStockModel.Person" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="GestStockModel.Produit" Width="1.5" PointX="9.75" PointY="4.125" />
+        <EntityTypeShape EntityType="GestStockModel.SCategory" Width="1.5" PointX="7.5" PointY="9.125" />
+        <EntityTypeShape EntityType="GestStockModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GestStockModel.User" Width="1.5" PointX="7.5" PointY="4.5" />
+        <EntityTypeShape EntityType="GestStockModel.Vente" Width="1.5" PointX="15" PointY="5" />
+        <EntityTypeShape EntityType="GestStockModel.V_Acces" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GestStockModel.V_Produit" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GestStockModel.V_User" Width="1.5" PointX="8.75" PointY="12.75" />
+        <AssociationConnector Association="GestStockModel.FK_Nombre_Fournisseur" />
+        <AssociationConnector Association="GestStockModel.FK_Nombre_Produit" />
         <AssociationConnector Association="GestStockModel.FK_SCategory_Category" />
         <AssociationConnector Association="GestStockModel.FK_Quantite_Commande" />
+        <AssociationConnector Association="GestStockModel.FK_DAcces_DAApprovisionnement" />
         <AssociationConnector Association="GestStockModel.FK_DAcces_DACategory" />
         <AssociationConnector Association="GestStockModel.FK_DAcces_DACommande" />
         <AssociationConnector Association="GestStockModel.FK_DAcces_DAFonction" />
@@ -38,15 +44,14 @@
         <AssociationConnector Association="GestStockModel.FK_DAcces_DAProduit" />
         <AssociationConnector Association="GestStockModel.FK_DAcces_DASCategory" />
         <AssociationConnector Association="GestStockModel.FK_DAcces_DAUtilisateur" />
+        <AssociationConnector Association="GestStockModel.FK_DAcces_DAVente" />
         <AssociationConnector Association="GestStockModel.FK_Fonction_DAcces" />
         <AssociationConnector Association="GestStockModel.FK_User_DAcces" />
         <AssociationConnector Association="GestStockModel.FK_Utilisateur_Fonction" />
-        <AssociationConnector Association="GestStockModel.FK_Nombre_Fournisseur" />
-        <AssociationConnector Association="GestStockModel.FK_Nombre_Produit" />
         <AssociationConnector Association="GestStockModel.FK_Utilisateur_Personne" />
         <AssociationConnector Association="GestStockModel.FK_Produit_SCategory" />
+        <AssociationConnector Association="GestStockModel.FK_Produit_User" />
         <AssociationConnector Association="GestStockModel.FK_Quantite_Produit" />
-        <EntityTypeShape EntityType="GestStockModel.LogsUsers" Width="1.5" PointX="9.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

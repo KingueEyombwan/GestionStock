@@ -14,6 +14,8 @@ namespace GestionStock
         {
             ValiderButtonCreerSousCategorie.ServerClick += CreationSousCategorie;
             user = (V_User)HttpContext.Current.Session["user"];
+            if (user == null)
+                HttpContext.Current.Response.Redirect("LoginPage.aspx");
         }
 
 

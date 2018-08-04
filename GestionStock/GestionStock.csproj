@@ -53,6 +53,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.EntityDataSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.EntityDataSource.6.0.0\lib\net40\Microsoft.AspNet.EntityDataSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -175,7 +179,6 @@
     <Content Include="Content\Produit.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\User.css" />
-    <Content Include="CreerAcces.aspx" />
     <Content Include="CreerCategorie.aspx" />
     <Content Include="CreerFonction.aspx" />
     <Content Include="CreerProduit.aspx" />
@@ -189,7 +192,6 @@
     <Content Include="GererFournisseur.aspx" />
     <Content Include="GererProduit.aspx" />
     <Content Include="GererSouscategorie.aspx" />
-    <Content Include="GererUtilisateur.aspx" />
     <Content Include="GestStockModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GestStockModel.edmx</DependentUpon>
@@ -201,6 +203,7 @@
       <LastGenOutput>GestStockModel.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Journaux.aspx" />
     <Content Include="JrLogo.png" />
     <Content Include="LoginPage.aspx" />
   </ItemGroup>
@@ -221,7 +224,6 @@
     <Content Include="packages.config" />
     <EntityDeploy Include="GestStockModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GestStockModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="GestStockModel.edmx.diagram">
       <DependentUpon>GestStockModel.edmx</DependentUpon>
@@ -353,6 +355,9 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Approvisionnement.cs">
+      <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Category.cs">
@@ -367,13 +372,6 @@
     </Compile>
     <Compile Include="Commande.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CreerAcces.aspx.cs">
-      <DependentUpon>CreerAcces.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreerAcces.aspx.designer.cs">
-      <DependentUpon>CreerAcces.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreerCategorie.aspx.cs">
       <DependentUpon>CreerCategorie.aspx</DependentUpon>
@@ -417,6 +415,9 @@
     <Compile Include="CreerVente.aspx.designer.cs">
       <DependentUpon>CreerVente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAApprovisionnement.cs">
+      <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DACategory.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
@@ -442,6 +443,9 @@
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAUtilisateur.cs">
+      <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAVente.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -499,13 +503,6 @@
     <Compile Include="GererSouscategorie.aspx.designer.cs">
       <DependentUpon>GererSouscategorie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GererUtilisateur.aspx.cs">
-      <DependentUpon>GererUtilisateur.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GererUtilisateur.aspx.designer.cs">
-      <DependentUpon>GererUtilisateur.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GestStockModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -523,6 +520,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Journaux.aspx.cs">
+      <DependentUpon>Journaux.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Journaux.aspx.designer.cs">
+      <DependentUpon>Journaux.aspx</DependentUpon>
     </Compile>
     <Compile Include="Light.master.cs">
       <DependentUpon>Light.master</DependentUpon>
@@ -549,9 +553,6 @@
       <DependentUpon>Main.master</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Nombre.cs">
-      <DependentUpon>GestStockModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Person.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
@@ -559,9 +560,6 @@
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quantite.cs">
-      <DependentUpon>GestStockModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Root.master.cs">
       <DependentUpon>Root.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -577,6 +575,9 @@
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>GestStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vente.cs">
       <DependentUpon>GestStockModel.tt</DependentUpon>
     </Compile>
     <Compile Include="V_Acces.cs">

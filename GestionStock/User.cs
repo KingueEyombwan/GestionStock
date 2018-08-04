@@ -14,17 +14,25 @@ namespace GestionStock
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Produit = new HashSet<Produit>();
+        }
+    
         public int IdUtilisateur { get; set; }
         public int IdFonction { get; set; }
         public int IdPersonne { get; set; }
         public string Matricule { get; set; }
-        public int Nombre { get; set; }
         public int IdDAcces { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual DAcces DAcces { get; set; }
         public virtual Fonction Fonction { get; set; }
         public virtual Person Person { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Produit> Produit { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
-  <item Text="Produits" NavigateUrl="#" />
-  <item Text="Utilisateur" NavigateUrl="#"  />
-  <item Text="Fournisseur" NavigateUrl="#"  />
-  <item Text="Vente" NavigateUrl="#"  />
+  <item Text="Produits" NavigateUrl="CreerProduit.aspx" />
+  <item Text="Utilisateur" NavigateUrl="CreerUtilisateur.aspx"  />
+  <item Text="Fournisseur" NavigateUrl="CeerFournisseur.aspx"  />
+  <item Text="Vente" NavigateUrl="CreerVente.aspx"  />
 </items>

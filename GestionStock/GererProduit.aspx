@@ -5,7 +5,6 @@
 		<title></title>
 	</head>
 	<body>
-		<form id="form1" runat="server">
 			<div>
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server">
                     <SettingsSearchPanel Visible="True" />
@@ -15,7 +14,6 @@
                     </Columns>
                 </dx:ASPxGridView>
 			</div>
-		</form>
 	</body>
 </html>
 </asp:Content>

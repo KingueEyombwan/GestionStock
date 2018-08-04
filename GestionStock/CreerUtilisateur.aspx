@@ -17,8 +17,6 @@
     <body>
 <section id="contact">
 			<div class="section-content">
-				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
-				<h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
 			</div>
 			<div class="contact-section">
 			<div class="container">
@@ -54,9 +52,9 @@
 			  			</div>
 						<div class="from-group">
 							<b>Votre sexe:</b></br>
-							<input type= "radio" name= "Masculin" id= "M" runat="server"/>
+							<input type= "radio" name= "sexe" id= "M" runat="server"/>
 							<label for= "masculin"> masculin</label><br/>
-							<input type= "radio" name= "Feminin" id= "F" runat="server"/>
+							<input type= "radio" name= "sexe" id= "F" runat="server"/>
 							<label for= "masculin"> feminin</label>
 						</div>
 					</div>
@@ -75,7 +73,7 @@
 							</div>
 							<div class="from-group">
 								<label for= "fonction"><b> Selectionnez la fonction:</b></label><br/>
-							<select name= "fonction" id= "fonction runat="server"">
+							<select name= "fonction" id= "fonction" runat="server">
 									<option value= "Directeur">Directeur</option>
 							</select>
 							</div>

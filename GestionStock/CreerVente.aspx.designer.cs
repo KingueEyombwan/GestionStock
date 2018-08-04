@@ -40,13 +40,13 @@ namespace GestionStock {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton O;
         
         /// <summary>
-        /// O control.
+        /// N control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton O;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton N;
         
         /// <summary>
         /// AnnulerCreerVente control.
@@ -64,7 +64,7 @@ namespace GestionStock {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CreerVenteQuantite;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CreerVenteQuantite;
         
         /// <summary>
         /// CreerVentePrixU control.

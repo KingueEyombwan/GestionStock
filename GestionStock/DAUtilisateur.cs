@@ -20,10 +20,10 @@ namespace GestionStock
             this.DAcces = new HashSet<DAcces>();
         }
     
-        public int IdAUtilisateur { get; set; }
-        public string Add_User { get; set; }
-        public string Delete_User { get; set; }
-        public string Modify_User { get; set; }
+        public bool IdAUtilisateur { get; set; }
+        public bool Add_User { get; set; }
+        public bool Delete_User { get; set; }
+        public bool Modify_User { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAcces> DAcces { get; set; }

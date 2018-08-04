@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="GestStockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Approvisionnement">
+          <Key>
+            <PropertyRef Name="IdApprovisionnement" />
+          </Key>
+          <Property Name="IdApprovisionnement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="IdFournisseur" Type="int" Nullable="false" />
+          <Property Name="Prix" Type="int" Nullable="false" />
+          <Property Name="DateLivraison" Type="datetime" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="DateCommande" Type="datetime" Nullable="false" />
+          <Property Name="isCompleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IdCategory" />
@@ -18,29 +31,40 @@
             <PropertyRef Name="IdCommande" />
           </Key>
           <Property Name="IdCommande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="D_Vente" Type="date" Nullable="false" />
-          <Property Name="H_Vente" Type="time" Precision="7" Nullable="false" />
+          <Property Name="D_Vente" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAApprovisionnement">
+          <Key>
+            <PropertyRef Name="IdAApprovisionnement" />
+          </Key>
+          <Property Name="IdAApprovisionnement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Add_Approvisionnement" Type="bit" Nullable="false" />
+          <Property Name="Delete_Approvisionnement" Type="bit" Nullable="false" />
+          <Property Name="Modify_Approvisionnement" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DACategory">
           <Key>
             <PropertyRef Name="IdACategory" />
           </Key>
           <Property Name="IdACategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Category" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Category" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Category" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Category" Type="bit" Nullable="false" />
+          <Property Name="Delete_Category" Type="bit" Nullable="false" />
+          <Property Name="Modify_Category" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAcces">
           <Key>
             <PropertyRef Name="IdDAcces" />
           </Key>
           <Property Name="IdDAcces" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="isForUser" Type="int" Nullable="false" />
+          <Property Name="Niveau" Type="int" />
+          <Property Name="isForUser" Type="bit" Nullable="false" />
           <Property Name="IdACommande" Type="int" Nullable="false" />
           <Property Name="IdAFonction" Type="int" Nullable="false" />
           <Property Name="IdAPersonne" Type="int" Nullable="false" />
           <Property Name="IdAProduit" Type="int" Nullable="false" />
           <Property Name="IdASCategory" Type="int" Nullable="false" />
+          <Property Name="IdAApprovisionnement" Type="int" Nullable="false" />
+          <Property Name="IdAVente" Type="int" Nullable="false" />
           <Property Name="IdACategory" Type="int" Nullable="false" />
           <Property Name="IdAFournisseur" Type="int" Nullable="false" />
         </EntityType>
@@ -49,63 +73,72 @@
             <PropertyRef Name="IdACommande" />
           </Key>
           <Property Name="IdACommande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Commande" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Commande" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Commande" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Commande" Type="bit" Nullable="false" />
+          <Property Name="Delete_Commande" Type="bit" Nullable="false" />
+          <Property Name="Modify_Commande" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAFonction">
           <Key>
             <PropertyRef Name="IdAFonction" />
           </Key>
           <Property Name="IdAFonction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Fonction" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Fonction" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Fonction" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Fonction" Type="bit" Nullable="false" />
+          <Property Name="Delete_Fonction" Type="bit" Nullable="false" />
+          <Property Name="Modify_Fonction" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAFournisseur">
           <Key>
             <PropertyRef Name="IdAFournisseur" />
           </Key>
           <Property Name="IdAFournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Fournisseur" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Fournisseur" Type="bit" Nullable="false" />
+          <Property Name="Delete_Fournisseur" Type="bit" Nullable="false" />
+          <Property Name="Modify_Fournisseur" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAPersonne">
           <Key>
             <PropertyRef Name="IdAPersonne" />
           </Key>
           <Property Name="IdAPersonne" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Personne" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Personne" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Personne" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Personne" Type="bit" Nullable="false" />
+          <Property Name="Delete_Personne" Type="bit" Nullable="false" />
+          <Property Name="Modify_Personne" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAProduit">
           <Key>
             <PropertyRef Name="IdAProduit" />
           </Key>
           <Property Name="IdAProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_Produit" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_Produit" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_Produit" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_Produit" Type="bit" Nullable="false" />
+          <Property Name="Delete_Produit" Type="bit" Nullable="false" />
+          <Property Name="Modify_Produit" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DASCategory">
           <Key>
             <PropertyRef Name="IdASCategory" />
           </Key>
           <Property Name="IdASCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_SCategory" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_SCategory" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_SCategory" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Add_SCategory" Type="bit" Nullable="false" />
+          <Property Name="Delete_SCategory" Type="bit" Nullable="false" />
+          <Property Name="Modify_SCategory" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DAUtilisateur">
           <Key>
             <PropertyRef Name="IdAUtilisateur" />
           </Key>
-          <Property Name="IdAUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Add_User" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Delete_User" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Modify_User" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdAUtilisateur" Type="bit" Nullable="false" />
+          <Property Name="Add_User" Type="bit" Nullable="false" />
+          <Property Name="Delete_User" Type="bit" Nullable="false" />
+          <Property Name="Modify_User" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAVente">
+          <Key>
+            <PropertyRef Name="IdAVente" />
+          </Key>
+          <Property Name="Add_Vente" Type="bit" Nullable="false" />
+          <Property Name="Delete_Vente" Type="bit" Nullable="false" />
+          <Property Name="Modify_Vente" Type="bit" Nullable="false" />
+          <Property Name="IdAVente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Fonction">
           <Key>
@@ -115,6 +148,7 @@
           <Property Name="Code" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="IdDAcces" Type="int" />
+          <Property Name="Nombre" Type="int" />
           <Property Name="Description" Type="text" Nullable="false" />
           <Property Name="D_Creation" Type="datetime" Nullable="false" />
         </EntityType>
@@ -129,29 +163,13 @@
           <Property Name="AdresseF" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="N_Telephone" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'GestStock.dbo.LogsUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LogsUsers">
           <Key>
             <PropertyRef Name="IdLogsUser" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="Details" />
           </Key>
           <Property Name="IdLogsUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
           <Property Name="Details" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Nombre">
-          <Key>
-            <PropertyRef Name="IdNombre" />
-          </Key>
-          <Property Name="IdNombre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuantiteF" Type="int" Nullable="false" />
-          <Property Name="IdFournisseur" Type="int" Nullable="false" />
-          <Property Name="H_Livraison" Type="time" Precision="7" />
-          <Property Name="P_Achat" Type="int" />
-          <Property Name="D_Livraison" Type="date" />
-          <Property Name="IdProduit" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -160,12 +178,12 @@ warning 6002: The table/view 'GestStock.dbo.LogsUsers' does not have a primary k
           <Property Name="IdPersonne" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="D_Naissance" Type="datetime" Nullable="false" />
+          <Property Name="D_Naissance" Type="date" Nullable="false" />
           <Property Name="L_Naissance" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="N_Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Sexe" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Sexe" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Produit">
           <Key>
@@ -179,20 +197,10 @@ warning 6002: The table/view 'GestStock.dbo.LogsUsers' does not have a primary k
           <Property Name="De_Produit" Type="text" Nullable="false" />
           <Property Name="Co_Produit" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="P_NProduit" Type="int" Nullable="false" />
-          <Property Name="P_VProduit" Type="int" Nullable="false" />
           <Property Name="Quantite" Type="int" Nullable="false" />
           <Property Name="Q_Critique" Type="int" Nullable="false" />
           <Property Name="Q_Fixe" Type="int" Nullable="false" />
-          <Property Name="Auto_Appro" Type="nchar" MaxLength="1" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Quantite">
-          <Key>
-            <PropertyRef Name="IdQuantite" />
-          </Key>
-          <Property Name="IdQuantite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdProduit" Type="int" Nullable="false" />
-          <Property Name="IdCommande" Type="int" Nullable="false" />
-          <Property Name="Qte" Type="int" Nullable="false" />
+          <Property Name="Auto_Appro" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SCategory">
           <Key>
@@ -221,10 +229,21 @@ warning 6002: The table/view 'GestStock.dbo.LogsUsers' does not have a primary k
           <Property Name="IdFonction" Type="int" Nullable="false" />
           <Property Name="IdPersonne" Type="int" Nullable="false" />
           <Property Name="Matricule" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nombre" Type="int" Nullable="false" />
           <Property Name="IdDAcces" Type="int" Nullable="false" />
           <Property Name="login" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="IdVente" />
+          </Key>
+          <Property Name="IdVente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="IdCommande" Type="int" Nullable="false" />
+          <Property Name="P_VProduit" Type="int" Nullable="false" />
+          <Property Name="Qte" Type="int" Nullable="false" />
+          <Property Name="Conso_Interne" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'GestStock.dbo.V_Acces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -381,6 +400,18 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="Libelle" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Description" Type="text" Nullable="false" />
         </EntityType>
+        <Association Name="FK_DAcces_DAApprovisionnement">
+          <End Role="DAApprovisionnement" Type="Self.DAApprovisionnement" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAApprovisionnement">
+              <PropertyRef Name="IdAApprovisionnement" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAApprovisionnement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DAcces_DACategory">
           <End Role="DACategory" Type="Self.DACategory" Multiplicity="1" />
           <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
@@ -477,6 +508,18 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DAcces_DAVente">
+          <End Role="DAVente" Type="Self.DAVente" Multiplicity="1" />
+          <End Role="DAcces" Type="Self.DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAVente">
+              <PropertyRef Name="IdAVente" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAVente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Fonction_DAcces">
           <End Role="DAcces" Type="Self.DAcces" Multiplicity="0..1" />
           <End Role="Fonction" Type="Self.Fonction" Multiplicity="*" />
@@ -491,24 +534,24 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
         </Association>
         <Association Name="FK_Nombre_Fournisseur">
           <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1" />
-          <End Role="Nombre" Type="Self.Nombre" Multiplicity="*" />
+          <End Role="Approvisionnement" Type="Self.Approvisionnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fournisseur">
               <PropertyRef Name="IdFournisseur" />
             </Principal>
-            <Dependent Role="Nombre">
+            <Dependent Role="Approvisionnement">
               <PropertyRef Name="IdFournisseur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nombre_Produit">
           <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
-          <End Role="Nombre" Type="Self.Nombre" Multiplicity="*" />
+          <End Role="Approvisionnement" Type="Self.Approvisionnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Produit">
               <PropertyRef Name="IdProduit" />
             </Principal>
-            <Dependent Role="Nombre">
+            <Dependent Role="Approvisionnement">
               <PropertyRef Name="IdProduit" />
             </Dependent>
           </ReferentialConstraint>
@@ -525,26 +568,38 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Produit_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Quantite_Commande">
           <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
-          <End Role="Quantite" Type="Self.Quantite" Multiplicity="*" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Commande">
               <PropertyRef Name="IdCommande" />
             </Principal>
-            <Dependent Role="Quantite">
+            <Dependent Role="Vente">
               <PropertyRef Name="IdCommande" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Quantite_Produit">
           <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
-          <End Role="Quantite" Type="Self.Quantite" Multiplicity="*" />
+          <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Produit">
               <PropertyRef Name="IdProduit" />
             </Principal>
-            <Dependent Role="Quantite">
+            <Dependent Role="Vente">
               <PropertyRef Name="IdProduit" />
             </Dependent>
           </ReferentialConstraint>
@@ -598,8 +653,10 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="GestStockModelStoreContainer">
+          <EntitySet Name="Approvisionnement" EntityType="Self.Approvisionnement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAApprovisionnement" EntityType="Self.DAApprovisionnement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DACategory" EntityType="Self.DACategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DAcces" EntityType="Self.DAcces" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DACommande" EntityType="Self.DACommande" Schema="dbo" store:Type="Tables" />
@@ -609,22 +666,16 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <EntitySet Name="DAProduit" EntityType="Self.DAProduit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DASCategory" EntityType="Self.DASCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DAUtilisateur" EntityType="Self.DAUtilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAVente" EntityType="Self.DAVente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fonction" EntityType="Self.Fonction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Nombre" EntityType="Self.Nombre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogsUsers" EntityType="Self.LogsUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Quantite" EntityType="Self.Quantite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SCategory" EntityType="Self.SCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LogsUsers" EntityType="Self.LogsUsers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [LogsUsers].[IdLogsUser] AS [IdLogsUser], 
-    [LogsUsers].[IdUser] AS [IdUser], 
-    [LogsUsers].[Details] AS [Details]
-    FROM [dbo].[LogsUsers] AS [LogsUsers]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Vente" EntityType="Self.Vente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="V_Acces" EntityType="Self.V_Acces" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_Acces].[Code] AS [Code], 
@@ -706,6 +757,10 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
     [V_User].[Description] AS [Description]
     FROM [dbo].[V_User] AS [V_User]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_DAcces_DAApprovisionnement" Association="Self.FK_DAcces_DAApprovisionnement">
+            <End Role="DAApprovisionnement" EntitySet="DAApprovisionnement" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
           <AssociationSet Name="FK_DAcces_DACategory" Association="Self.FK_DAcces_DACategory">
             <End Role="DACategory" EntitySet="DACategory" />
             <End Role="DAcces" EntitySet="DAcces" />
@@ -738,29 +793,37 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <End Role="DAUtilisateur" EntitySet="DAUtilisateur" />
             <End Role="DAcces" EntitySet="DAcces" />
           </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAVente" Association="Self.FK_DAcces_DAVente">
+            <End Role="DAVente" EntitySet="DAVente" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
           <AssociationSet Name="FK_Fonction_DAcces" Association="Self.FK_Fonction_DAcces">
             <End Role="DAcces" EntitySet="DAcces" />
             <End Role="Fonction" EntitySet="Fonction" />
           </AssociationSet>
           <AssociationSet Name="FK_Nombre_Fournisseur" Association="Self.FK_Nombre_Fournisseur">
             <End Role="Fournisseur" EntitySet="Fournisseur" />
-            <End Role="Nombre" EntitySet="Nombre" />
+            <End Role="Approvisionnement" EntitySet="Approvisionnement" />
           </AssociationSet>
           <AssociationSet Name="FK_Nombre_Produit" Association="Self.FK_Nombre_Produit">
             <End Role="Produit" EntitySet="Produit" />
-            <End Role="Nombre" EntitySet="Nombre" />
+            <End Role="Approvisionnement" EntitySet="Approvisionnement" />
           </AssociationSet>
           <AssociationSet Name="FK_Produit_SCategory" Association="Self.FK_Produit_SCategory">
             <End Role="SCategory" EntitySet="SCategory" />
             <End Role="Produit" EntitySet="Produit" />
           </AssociationSet>
+          <AssociationSet Name="FK_Produit_User" Association="Self.FK_Produit_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
           <AssociationSet Name="FK_Quantite_Commande" Association="Self.FK_Quantite_Commande">
             <End Role="Commande" EntitySet="Commande" />
-            <End Role="Quantite" EntitySet="Quantite" />
+            <End Role="Vente" EntitySet="Vente" />
           </AssociationSet>
           <AssociationSet Name="FK_Quantite_Produit" Association="Self.FK_Quantite_Produit">
             <End Role="Produit" EntitySet="Produit" />
-            <End Role="Quantite" EntitySet="Quantite" />
+            <End Role="Vente" EntitySet="Vente" />
           </AssociationSet>
           <AssociationSet Name="FK_SCategory_Category" Association="Self.FK_SCategory_Category">
             <End Role="Category" EntitySet="Category" />
@@ -784,8 +847,10 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
     <edmx:ConceptualModels>
       <Schema Namespace="GestStockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GestStockEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Approvisionnement" EntityType="GestStockModel.Approvisionnement" />
           <EntitySet Name="Category" EntityType="GestStockModel.Category" />
           <EntitySet Name="Commande" EntityType="GestStockModel.Commande" />
+          <EntitySet Name="DAApprovisionnement" EntityType="GestStockModel.DAApprovisionnement" />
           <EntitySet Name="DACategory" EntityType="GestStockModel.DACategory" />
           <EntitySet Name="DAcces" EntityType="GestStockModel.DAcces" />
           <EntitySet Name="DACommande" EntityType="GestStockModel.DACommande" />
@@ -795,25 +860,38 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <EntitySet Name="DAProduit" EntityType="GestStockModel.DAProduit" />
           <EntitySet Name="DASCategory" EntityType="GestStockModel.DASCategory" />
           <EntitySet Name="DAUtilisateur" EntityType="GestStockModel.DAUtilisateur" />
+          <EntitySet Name="DAVente" EntityType="GestStockModel.DAVente" />
           <EntitySet Name="Fonction" EntityType="GestStockModel.Fonction" />
           <EntitySet Name="Fournisseur" EntityType="GestStockModel.Fournisseur" />
-          <EntitySet Name="Nombre" EntityType="GestStockModel.Nombre" />
+          <EntitySet Name="LogsUsers" EntityType="GestStockModel.LogsUsers" />
           <EntitySet Name="Person" EntityType="GestStockModel.Person" />
           <EntitySet Name="Produit" EntityType="GestStockModel.Produit" />
-          <EntitySet Name="Quantite" EntityType="GestStockModel.Quantite" />
           <EntitySet Name="SCategory" EntityType="GestStockModel.SCategory" />
           <EntitySet Name="sysdiagrams" EntityType="GestStockModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="GestStockModel.User" />
+          <EntitySet Name="Vente" EntityType="GestStockModel.Vente" />
           <EntitySet Name="V_Acces" EntityType="GestStockModel.V_Acces" />
           <EntitySet Name="V_Produit" EntityType="GestStockModel.V_Produit" />
           <EntitySet Name="V_User" EntityType="GestStockModel.V_User" />
+          <AssociationSet Name="FK_Nombre_Fournisseur" Association="GestStockModel.FK_Nombre_Fournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Approvisionnement" EntitySet="Approvisionnement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nombre_Produit" Association="GestStockModel.FK_Nombre_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Approvisionnement" EntitySet="Approvisionnement" />
+          </AssociationSet>
           <AssociationSet Name="FK_SCategory_Category" Association="GestStockModel.FK_SCategory_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="SCategory" EntitySet="SCategory" />
           </AssociationSet>
           <AssociationSet Name="FK_Quantite_Commande" Association="GestStockModel.FK_Quantite_Commande">
             <End Role="Commande" EntitySet="Commande" />
-            <End Role="Quantite" EntitySet="Quantite" />
+            <End Role="Vente" EntitySet="Vente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAApprovisionnement" Association="GestStockModel.FK_DAcces_DAApprovisionnement">
+            <End Role="DAApprovisionnement" EntitySet="DAApprovisionnement" />
+            <End Role="DAcces" EntitySet="DAcces" />
           </AssociationSet>
           <AssociationSet Name="FK_DAcces_DACategory" Association="GestStockModel.FK_DAcces_DACategory">
             <End Role="DACategory" EntitySet="DACategory" />
@@ -847,6 +925,10 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <End Role="DAUtilisateur" EntitySet="DAUtilisateur" />
             <End Role="DAcces" EntitySet="DAcces" />
           </AssociationSet>
+          <AssociationSet Name="FK_DAcces_DAVente" Association="GestStockModel.FK_DAcces_DAVente">
+            <End Role="DAVente" EntitySet="DAVente" />
+            <End Role="DAcces" EntitySet="DAcces" />
+          </AssociationSet>
           <AssociationSet Name="FK_Fonction_DAcces" Association="GestStockModel.FK_Fonction_DAcces">
             <End Role="DAcces" EntitySet="DAcces" />
             <End Role="Fonction" EntitySet="Fonction" />
@@ -859,14 +941,6 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <End Role="Fonction" EntitySet="Fonction" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_Nombre_Fournisseur" Association="GestStockModel.FK_Nombre_Fournisseur">
-            <End Role="Fournisseur" EntitySet="Fournisseur" />
-            <End Role="Nombre" EntitySet="Nombre" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Nombre_Produit" Association="GestStockModel.FK_Nombre_Produit">
-            <End Role="Produit" EntitySet="Produit" />
-            <End Role="Nombre" EntitySet="Nombre" />
-          </AssociationSet>
           <AssociationSet Name="FK_Utilisateur_Personne" Association="GestStockModel.FK_Utilisateur_Personne">
             <End Role="Person" EntitySet="Person" />
             <End Role="User" EntitySet="User" />
@@ -875,12 +949,30 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <End Role="SCategory" EntitySet="SCategory" />
             <End Role="Produit" EntitySet="Produit" />
           </AssociationSet>
+          <AssociationSet Name="FK_Produit_User" Association="GestStockModel.FK_Produit_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
           <AssociationSet Name="FK_Quantite_Produit" Association="GestStockModel.FK_Quantite_Produit">
             <End Role="Produit" EntitySet="Produit" />
-            <End Role="Quantite" EntitySet="Quantite" />
+            <End Role="Vente" EntitySet="Vente" />
           </AssociationSet>
-          <EntitySet Name="LogsUsers" EntityType="GestStockModel.LogsUsers" />
         </EntityContainer>
+        <EntityType Name="Approvisionnement">
+          <Key>
+            <PropertyRef Name="IdApprovisionnement" />
+          </Key>
+          <Property Name="IdApprovisionnement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="IdFournisseur" Type="Int32" Nullable="false" />
+          <Property Name="Prix" Type="Int32" Nullable="false" />
+          <Property Name="DateLivraison" Type="DateTime" Precision="3" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="DateCommande" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isCompleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Fournisseur" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Approvisionnement" ToRole="Fournisseur" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Approvisionnement" ToRole="Produit" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IdCategory" />
@@ -895,18 +987,27 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdCommande" />
           </Key>
           <Property Name="IdCommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="D_Vente" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="H_Vente" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="Quantite" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Commande" ToRole="Quantite" />
+          <Property Name="D_Vente" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Vente" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Commande" ToRole="Vente" />
+        </EntityType>
+        <EntityType Name="DAApprovisionnement">
+          <Key>
+            <PropertyRef Name="IdAApprovisionnement" />
+          </Key>
+          <Property Name="IdAApprovisionnement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Add_Approvisionnement" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Approvisionnement" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Approvisionnement" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAApprovisionnement" FromRole="DAApprovisionnement" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DACategory">
           <Key>
             <PropertyRef Name="IdACategory" />
           </Key>
           <Property Name="IdACategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Category" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Category" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Category" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Category" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DACategory" FromRole="DACategory" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAcces">
@@ -914,14 +1015,18 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdDAcces" />
           </Key>
           <Property Name="IdDAcces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="isForUser" Type="Int32" Nullable="false" />
+          <Property Name="Niveau" Type="Int32" />
+          <Property Name="isForUser" Type="Boolean" Nullable="false" />
           <Property Name="IdACommande" Type="Int32" Nullable="false" />
           <Property Name="IdAFonction" Type="Int32" Nullable="false" />
           <Property Name="IdAPersonne" Type="Int32" Nullable="false" />
           <Property Name="IdAProduit" Type="Int32" Nullable="false" />
           <Property Name="IdASCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdAApprovisionnement" Type="Int32" Nullable="false" />
+          <Property Name="IdAVente" Type="Int32" Nullable="false" />
           <Property Name="IdACategory" Type="Int32" Nullable="false" />
           <Property Name="IdAFournisseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DAApprovisionnement" Relationship="GestStockModel.FK_DAcces_DAApprovisionnement" FromRole="DAcces" ToRole="DAApprovisionnement" />
           <NavigationProperty Name="DACategory" Relationship="GestStockModel.FK_DAcces_DACategory" FromRole="DAcces" ToRole="DACategory" />
           <NavigationProperty Name="DACommande" Relationship="GestStockModel.FK_DAcces_DACommande" FromRole="DAcces" ToRole="DACommande" />
           <NavigationProperty Name="DAFonction" Relationship="GestStockModel.FK_DAcces_DAFonction" FromRole="DAcces" ToRole="DAFonction" />
@@ -930,6 +1035,7 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <NavigationProperty Name="DAProduit" Relationship="GestStockModel.FK_DAcces_DAProduit" FromRole="DAcces" ToRole="DAProduit" />
           <NavigationProperty Name="DASCategory" Relationship="GestStockModel.FK_DAcces_DASCategory" FromRole="DAcces" ToRole="DASCategory" />
           <NavigationProperty Name="DAUtilisateur" Relationship="GestStockModel.FK_DAcces_DAUtilisateur" FromRole="DAcces" ToRole="DAUtilisateur" />
+          <NavigationProperty Name="DAVente" Relationship="GestStockModel.FK_DAcces_DAVente" FromRole="DAcces" ToRole="DAVente" />
           <NavigationProperty Name="Fonction" Relationship="GestStockModel.FK_Fonction_DAcces" FromRole="DAcces" ToRole="Fonction" />
           <NavigationProperty Name="User" Relationship="GestStockModel.FK_User_DAcces" FromRole="DAcces" ToRole="User" />
         </EntityType>
@@ -938,9 +1044,9 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdACommande" />
           </Key>
           <Property Name="IdACommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Commande" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Commande" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Commande" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Commande" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DACommande" FromRole="DACommande" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAFonction">
@@ -948,9 +1054,9 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdAFonction" />
           </Key>
           <Property Name="IdAFonction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Fonction" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Fonction" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Fonction" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Fonction" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAFonction" FromRole="DAFonction" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAFournisseur">
@@ -958,9 +1064,9 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdAFournisseur" />
           </Key>
           <Property Name="IdAFournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Fournisseur" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Fournisseur" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Fournisseur" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Fournisseur" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAFournisseur" FromRole="DAFournisseur" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAPersonne">
@@ -968,9 +1074,9 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdAPersonne" />
           </Key>
           <Property Name="IdAPersonne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Personne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Personne" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Personne" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Personne" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAPersonne" FromRole="DAPersonne" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAProduit">
@@ -978,9 +1084,9 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdAProduit" />
           </Key>
           <Property Name="IdAProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_Produit" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_Produit" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Produit" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Produit" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAProduit" FromRole="DAProduit" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DASCategory">
@@ -988,20 +1094,30 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             <PropertyRef Name="IdASCategory" />
           </Key>
           <Property Name="IdASCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_SCategory" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Add_SCategory" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_SCategory" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_SCategory" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DASCategory" FromRole="DASCategory" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="DAUtilisateur">
           <Key>
             <PropertyRef Name="IdAUtilisateur" />
           </Key>
-          <Property Name="IdAUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Add_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Delete_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Modify_User" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdAUtilisateur" Type="Boolean" Nullable="false" />
+          <Property Name="Add_User" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_User" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_User" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAUtilisateur" FromRole="DAUtilisateur" ToRole="DAcces" />
+        </EntityType>
+        <EntityType Name="DAVente">
+          <Key>
+            <PropertyRef Name="IdAVente" />
+          </Key>
+          <Property Name="Add_Vente" Type="Boolean" Nullable="false" />
+          <Property Name="Delete_Vente" Type="Boolean" Nullable="false" />
+          <Property Name="Modify_Vente" Type="Boolean" Nullable="false" />
+          <Property Name="IdAVente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_DAcces_DAVente" FromRole="DAVente" ToRole="DAcces" />
         </EntityType>
         <EntityType Name="Fonction">
           <Key>
@@ -1011,6 +1127,7 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="IdDAcces" Type="Int32" />
+          <Property Name="Nombre" Type="Int32" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="D_Creation" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_Fonction_DAcces" FromRole="Fonction" ToRole="DAcces" />
@@ -1026,21 +1143,15 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="Mail_Fournisseur" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="AdresseF" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="N_Telephone" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Nombre" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Fournisseur" ToRole="Nombre" />
+          <NavigationProperty Name="Approvisionnement" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Fournisseur" ToRole="Approvisionnement" />
         </EntityType>
-        <EntityType Name="Nombre">
+        <EntityType Name="LogsUsers">
           <Key>
-            <PropertyRef Name="IdNombre" />
+            <PropertyRef Name="IdLogsUser" />
           </Key>
-          <Property Name="IdNombre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuantiteF" Type="Int32" Nullable="false" />
-          <Property Name="IdFournisseur" Type="Int32" Nullable="false" />
-          <Property Name="H_Livraison" Type="Time" Precision="7" />
-          <Property Name="P_Achat" Type="Int32" />
-          <Property Name="D_Livraison" Type="DateTime" Precision="0" />
-          <Property Name="IdProduit" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Fournisseur" Relationship="GestStockModel.FK_Nombre_Fournisseur" FromRole="Nombre" ToRole="Fournisseur" />
-          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Nombre" ToRole="Produit" />
+          <Property Name="IdLogsUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -1049,12 +1160,12 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="IdPersonne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="D_Naissance" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="D_Naissance" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="L_Naissance" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="N_Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sexe" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Sexe" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="GestStockModel.FK_Utilisateur_Personne" FromRole="Person" ToRole="User" />
         </EntityType>
         <EntityType Name="Produit">
@@ -1069,25 +1180,14 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="De_Produit" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Co_Produit" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="P_NProduit" Type="Int32" Nullable="false" />
-          <Property Name="P_VProduit" Type="Int32" Nullable="false" />
           <Property Name="Quantite" Type="Int32" Nullable="false" />
           <Property Name="Q_Critique" Type="Int32" Nullable="false" />
           <Property Name="Q_Fixe" Type="Int32" Nullable="false" />
-          <Property Name="Auto_Appro" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Nombre" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Produit" ToRole="Nombre" />
+          <Property Name="Auto_Appro" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Approvisionnement" Relationship="GestStockModel.FK_Nombre_Produit" FromRole="Produit" ToRole="Approvisionnement" />
           <NavigationProperty Name="SCategory" Relationship="GestStockModel.FK_Produit_SCategory" FromRole="Produit" ToRole="SCategory" />
-          <NavigationProperty Name="Quantite1" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Produit" ToRole="Quantite" />
-        </EntityType>
-        <EntityType Name="Quantite">
-          <Key>
-            <PropertyRef Name="IdQuantite" />
-          </Key>
-          <Property Name="IdQuantite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProduit" Type="Int32" Nullable="false" />
-          <Property Name="IdCommande" Type="Int32" Nullable="false" />
-          <Property Name="Qte" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Commande" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Quantite" ToRole="Commande" />
-          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Quantite" ToRole="Produit" />
+          <NavigationProperty Name="User" Relationship="GestStockModel.FK_Produit_User" FromRole="Produit" ToRole="User" />
+          <NavigationProperty Name="Vente" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Produit" ToRole="Vente" />
         </EntityType>
         <EntityType Name="SCategory">
           <Key>
@@ -1118,13 +1218,27 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="IdFonction" Type="Int32" Nullable="false" />
           <Property Name="IdPersonne" Type="Int32" Nullable="false" />
           <Property Name="Matricule" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Nombre" Type="Int32" Nullable="false" />
           <Property Name="IdDAcces" Type="Int32" Nullable="false" />
           <Property Name="login" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DAcces" Relationship="GestStockModel.FK_User_DAcces" FromRole="User" ToRole="DAcces" />
           <NavigationProperty Name="Fonction" Relationship="GestStockModel.FK_Utilisateur_Fonction" FromRole="User" ToRole="Fonction" />
           <NavigationProperty Name="Person" Relationship="GestStockModel.FK_Utilisateur_Personne" FromRole="User" ToRole="Person" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Produit_User" FromRole="User" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="IdVente" />
+          </Key>
+          <Property Name="IdVente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="IdCommande" Type="Int32" Nullable="false" />
+          <Property Name="P_VProduit" Type="Int32" Nullable="false" />
+          <Property Name="Qte" Type="Int32" Nullable="false" />
+          <Property Name="Conso_Interne" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Commande" Relationship="GestStockModel.FK_Quantite_Commande" FromRole="Vente" ToRole="Commande" />
+          <NavigationProperty Name="Produit" Relationship="GestStockModel.FK_Quantite_Produit" FromRole="Vente" ToRole="Produit" />
         </EntityType>
         <EntityType Name="V_Acces">
           <Key>
@@ -1275,6 +1389,30 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="FK_Nombre_Fournisseur">
+          <End Type="GestStockModel.Fournisseur" Role="Fournisseur" Multiplicity="1" />
+          <End Type="GestStockModel.Approvisionnement" Role="Approvisionnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="IdFournisseur" />
+            </Principal>
+            <Dependent Role="Approvisionnement">
+              <PropertyRef Name="IdFournisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nombre_Produit">
+          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="1" />
+          <End Type="GestStockModel.Approvisionnement" Role="Approvisionnement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Approvisionnement">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SCategory_Category">
           <End Type="GestStockModel.Category" Role="Category" Multiplicity="1" />
           <End Type="GestStockModel.SCategory" Role="SCategory" Multiplicity="*" />
@@ -1289,13 +1427,25 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
         </Association>
         <Association Name="FK_Quantite_Commande">
           <End Type="GestStockModel.Commande" Role="Commande" Multiplicity="1" />
-          <End Type="GestStockModel.Quantite" Role="Quantite" Multiplicity="*" />
+          <End Type="GestStockModel.Vente" Role="Vente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Commande">
               <PropertyRef Name="IdCommande" />
             </Principal>
-            <Dependent Role="Quantite">
+            <Dependent Role="Vente">
               <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAcces_DAApprovisionnement">
+          <End Type="GestStockModel.DAApprovisionnement" Role="DAApprovisionnement" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAApprovisionnement">
+              <PropertyRef Name="IdAApprovisionnement" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAApprovisionnement" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1395,6 +1545,18 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DAcces_DAVente">
+          <End Type="GestStockModel.DAVente" Role="DAVente" Multiplicity="1" />
+          <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAVente">
+              <PropertyRef Name="IdAVente" />
+            </Principal>
+            <Dependent Role="DAcces">
+              <PropertyRef Name="IdAVente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Fonction_DAcces">
           <End Type="GestStockModel.DAcces" Role="DAcces" Multiplicity="0..1" />
           <End Type="GestStockModel.Fonction" Role="Fonction" Multiplicity="*" />
@@ -1431,30 +1593,6 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Nombre_Fournisseur">
-          <End Type="GestStockModel.Fournisseur" Role="Fournisseur" Multiplicity="1" />
-          <End Type="GestStockModel.Nombre" Role="Nombre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fournisseur">
-              <PropertyRef Name="IdFournisseur" />
-            </Principal>
-            <Dependent Role="Nombre">
-              <PropertyRef Name="IdFournisseur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Nombre_Produit">
-          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="1" />
-          <End Type="GestStockModel.Nombre" Role="Nombre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Produit">
-              <PropertyRef Name="IdProduit" />
-            </Principal>
-            <Dependent Role="Nombre">
-              <PropertyRef Name="IdProduit" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Utilisateur_Personne">
           <End Type="GestStockModel.Person" Role="Person" Multiplicity="1" />
           <End Type="GestStockModel.User" Role="User" Multiplicity="*" />
@@ -1479,34 +1617,50 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Produit_User">
+          <End Type="GestStockModel.User" Role="User" Multiplicity="1" />
+          <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Quantite_Produit">
           <End Type="GestStockModel.Produit" Role="Produit" Multiplicity="1" />
-          <End Type="GestStockModel.Quantite" Role="Quantite" Multiplicity="*" />
+          <End Type="GestStockModel.Vente" Role="Vente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Produit">
               <PropertyRef Name="IdProduit" />
             </Principal>
-            <Dependent Role="Quantite">
+            <Dependent Role="Vente">
               <PropertyRef Name="IdProduit" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="LogsUsers">
-          <Key>
-            <PropertyRef Name="IdLogsUser" />
-            <PropertyRef Name="IdUser" />
-            <PropertyRef Name="Details" />
-          </Key>
-          <Property Name="IdLogsUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <Property Name="Details" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GestStockModelStoreContainer" CdmEntityContainer="GestStockEntities">
+          <EntitySetMapping Name="Approvisionnement">
+            <EntityTypeMapping TypeName="GestStockModel.Approvisionnement">
+              <MappingFragment StoreEntitySet="Approvisionnement">
+                <ScalarProperty Name="isCompleted" ColumnName="isCompleted" />
+                <ScalarProperty Name="DateCommande" ColumnName="DateCommande" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="DateLivraison" ColumnName="DateLivraison" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="IdFournisseur" ColumnName="IdFournisseur" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="IdApprovisionnement" ColumnName="IdApprovisionnement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="GestStockModel.Category">
               <MappingFragment StoreEntitySet="Category">
@@ -1519,9 +1673,18 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <EntitySetMapping Name="Commande">
             <EntityTypeMapping TypeName="GestStockModel.Commande">
               <MappingFragment StoreEntitySet="Commande">
-                <ScalarProperty Name="H_Vente" ColumnName="H_Vente" />
                 <ScalarProperty Name="D_Vente" ColumnName="D_Vente" />
                 <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAApprovisionnement">
+            <EntityTypeMapping TypeName="GestStockModel.DAApprovisionnement">
+              <MappingFragment StoreEntitySet="DAApprovisionnement">
+                <ScalarProperty Name="Modify_Approvisionnement" ColumnName="Modify_Approvisionnement" />
+                <ScalarProperty Name="Delete_Approvisionnement" ColumnName="Delete_Approvisionnement" />
+                <ScalarProperty Name="Add_Approvisionnement" ColumnName="Add_Approvisionnement" />
+                <ScalarProperty Name="IdAApprovisionnement" ColumnName="IdAApprovisionnement" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1540,12 +1703,15 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
               <MappingFragment StoreEntitySet="DAcces">
                 <ScalarProperty Name="IdAFournisseur" ColumnName="IdAFournisseur" />
                 <ScalarProperty Name="IdACategory" ColumnName="IdACategory" />
+                <ScalarProperty Name="IdAVente" ColumnName="IdAVente" />
+                <ScalarProperty Name="IdAApprovisionnement" ColumnName="IdAApprovisionnement" />
                 <ScalarProperty Name="IdASCategory" ColumnName="IdASCategory" />
                 <ScalarProperty Name="IdAProduit" ColumnName="IdAProduit" />
                 <ScalarProperty Name="IdAPersonne" ColumnName="IdAPersonne" />
                 <ScalarProperty Name="IdAFonction" ColumnName="IdAFonction" />
                 <ScalarProperty Name="IdACommande" ColumnName="IdACommande" />
                 <ScalarProperty Name="isForUser" ColumnName="isForUser" />
+                <ScalarProperty Name="Niveau" ColumnName="Niveau" />
                 <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1620,11 +1786,22 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DAVente">
+            <EntityTypeMapping TypeName="GestStockModel.DAVente">
+              <MappingFragment StoreEntitySet="DAVente">
+                <ScalarProperty Name="IdAVente" ColumnName="IdAVente" />
+                <ScalarProperty Name="Modify_Vente" ColumnName="Modify_Vente" />
+                <ScalarProperty Name="Delete_Vente" ColumnName="Delete_Vente" />
+                <ScalarProperty Name="Add_Vente" ColumnName="Add_Vente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Fonction">
             <EntityTypeMapping TypeName="GestStockModel.Fonction">
               <MappingFragment StoreEntitySet="Fonction">
                 <ScalarProperty Name="D_Creation" ColumnName="D_Creation" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
@@ -1644,16 +1821,12 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Nombre">
-            <EntityTypeMapping TypeName="GestStockModel.Nombre">
-              <MappingFragment StoreEntitySet="Nombre">
-                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
-                <ScalarProperty Name="D_Livraison" ColumnName="D_Livraison" />
-                <ScalarProperty Name="P_Achat" ColumnName="P_Achat" />
-                <ScalarProperty Name="H_Livraison" ColumnName="H_Livraison" />
-                <ScalarProperty Name="IdFournisseur" ColumnName="IdFournisseur" />
-                <ScalarProperty Name="QuantiteF" ColumnName="QuantiteF" />
-                <ScalarProperty Name="IdNombre" ColumnName="IdNombre" />
+          <EntitySetMapping Name="LogsUsers">
+            <EntityTypeMapping TypeName="GestStockModel.LogsUsers">
+              <MappingFragment StoreEntitySet="LogsUsers">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdLogsUser" ColumnName="IdLogsUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1679,7 +1852,6 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
                 <ScalarProperty Name="Q_Fixe" ColumnName="Q_Fixe" />
                 <ScalarProperty Name="Q_Critique" ColumnName="Q_Critique" />
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
-                <ScalarProperty Name="P_VProduit" ColumnName="P_VProduit" />
                 <ScalarProperty Name="P_NProduit" ColumnName="P_NProduit" />
                 <ScalarProperty Name="Co_Produit" ColumnName="Co_Produit" />
                 <ScalarProperty Name="De_Produit" ColumnName="De_Produit" />
@@ -1688,16 +1860,6 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
                 <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
                 <ScalarProperty Name="IdSCategory" ColumnName="IdSCategory" />
                 <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Quantite">
-            <EntityTypeMapping TypeName="GestStockModel.Quantite">
-              <MappingFragment StoreEntitySet="Quantite">
-                <ScalarProperty Name="Qte" ColumnName="Qte" />
-                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
-                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
-                <ScalarProperty Name="IdQuantite" ColumnName="IdQuantite" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1725,14 +1887,26 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="GestStockModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="IdDAcces" ColumnName="IdDAcces" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Matricule" ColumnName="Matricule" />
                 <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
                 <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
                 <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vente">
+            <EntityTypeMapping TypeName="GestStockModel.Vente">
+              <MappingFragment StoreEntitySet="Vente">
+                <ScalarProperty Name="Conso_Interne" ColumnName="Conso_Interne" />
+                <ScalarProperty Name="Qte" ColumnName="Qte" />
+                <ScalarProperty Name="P_VProduit" ColumnName="P_VProduit" />
+                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="IdVente" ColumnName="IdVente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1820,15 +1994,6 @@ warning 6002: The table/view 'GestStock.dbo.V_User' does not have a primary key 
                 <ScalarProperty Name="IdFonction" ColumnName="IdFonction" />
                 <ScalarProperty Name="IdPersonne" ColumnName="IdPersonne" />
                 <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LogsUsers">
-            <EntityTypeMapping TypeName="GestStockModel.LogsUsers">
-              <MappingFragment StoreEntitySet="LogsUsers">
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="IdLogsUser" ColumnName="IdLogsUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
